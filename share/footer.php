@@ -1,0 +1,44 @@
+<footer>
+    <div class="footer-container">
+        
+        <!-- LEFT SIDE -->
+        <div class="footer-left">
+            <h2>GRAND PRIX SOCIETY</h2>
+            <p>Your club description here. Short and simple.</p>
+            
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://instagram.com/fhinkimi" target="_blank">
+                    <img src="images/instagramn.avif" alt="Instagram">
+                </a>
+                <a href="https://www.hwumsa.com" target="_blank">
+                    <img src="images/hwumsa.avif" alt="HWUMSA">
+                </a>
+                <h5> 1, Jalan Venna P5/2, Precinct 5, 62200 Putrajaya, <br> 
+                     Wilayah Persekutuan Putrajaya </br> </h5> 
+            </div>
+            
+            <a href="#top" class="back-to-top">↑ BACK TO TOP</a>
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="footer-right">
+            <h4>Site Map</h4>
+            <a href="index.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="activities.php">Activities</a>
+            <a href="contact.php">Contact</a>
+            <a href="announcements.php">Announcements</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        
+        <p>© 2025 Grand Prix Society. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

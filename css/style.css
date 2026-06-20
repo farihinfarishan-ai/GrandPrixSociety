@@ -1,0 +1,104 @@
+:root {
+    --red:      #CC0000;
+    --black:    #0a0a0a;
+    --dark:     #111111;
+    --border:   #2a2a2a;
+    --white:    #ffffff;
+    --grey:     #888888;   
+}
+/* this one root kalau nak adjust colour just change sini */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*  default spacing  */
+footer {
+    background-color: #0a0a0a;
+    color: white;
+    padding: 50px;
+    border-top: 2px solid #CC0000;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-left {
+    width: 40%;
+}
+
+.footer-left h2 {
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.footer-left h2 span {
+    color: #CC0000;
+}
+
+.footer-left p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.social-icons img {
+    width: 28px;
+    height: 28px;
+}
+
+.back-to-top {
+    border: 1px solid #444;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.footer-right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-right h4 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #CC0000;
+    text-transform: uppercase;
+}
+
+.footer-right a {
+    color: #888;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.footer-right a:hover {
+    color: #CC0000;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 1px;
+}
