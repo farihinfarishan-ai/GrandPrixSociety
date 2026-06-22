@@ -1,55 +1,114 @@
-:root {
-    --red:      #CC0000;
-    --black:    #0a0a0a;
-    --dark:     #111111;
-    --border:   #2a2a2a;
-    --white:    #ffffff;
-    --grey:     #888888;   
-}
-/* this one root kalau nak adjust colour just change sini */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-/*  default spacing  */
-footer {
+body {
+    font-family: 'Barlow Condensed', sans-serif;
     background-color: #0a0a0a;
     color: white;
-    padding: 50px;
-    border-top: 2px solid #CC0000;
+    margin: 0;
+    padding: 0;
+}
+.top-section {
+   
+    background-image:linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2)),
+     url('/CartClub/image/lewistop.png');
+
+/*  the linear gradient provide dark overlay on top of the image  */
+    padding: 0 60px;
+    text-align: center;
+    display: flex;
+    background-position: center; 
+    /*  centre  */
+    background-size: cover; 
+    /*  cover is to cover the image entirely  */
+    min-height: 70vh;
+    overflow: hidden; 
+    /*  overflow hidden nak cut gambar betul ii ikut sreen */
+    position: relative;
+    padding-top: 70px;
+
+}
+.top-section-content {
+    max-width: 700px;
+    text-align: left;
+}
+
+.top-tag {
+    color: #CC0000;
+    font-size: 20px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.top-title{
+    font-size: 130px !important;
+    font-weight: 700;
+    line-height: 0.95;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 24px;
+}
+.top-title span {
+    color: #CC0000;
+    display: block; 
+    /* the display block untuk add position dia in dia punya line */
+}
+.top-description {
+    font-size: 20px;
+    color: #aaa;
+    max-width: 500px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    font-weight: 400;
+}
+.top-button {
+    display: flex;
+    gap: 20px;
+    align-content: center;}
+
+.btn-primary {
+    background-color: #CC0000;
+    color: white;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+} 
+/*  this buttone for the join now  */
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #444;
+}
+/*  this button for explore seasons */
+
+/*  footerr  */
+footer {
+    background-color: #050505;
+    border-top: 2px solid var(--red);
+    padding: 60px;
+    margin-top: 80px;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-}
-
-.footer-left {
-    width: 40%;
-}
-
-.footer-left h2 {
-    font-size: 20px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.footer-left h2 span {
-    color: #CC0000;
-}
-
-.footer-left p {
-    color: #888;
-    font-size: 13px;
-    margin-top: 10px;
-    line-height: 1.7;
+    align-items: flex-start;
+    margin-bottom: 50px;
 }
 
 .social-icons {
     display: flex;
-    gap: 15px;
-    margin: 20px 0;
+    align-items: center;
+    gap: 16px;
 }
 
 .social-icons img {
@@ -57,48 +116,633 @@ footer {
     height: 28px;
 }
 
-.back-to-top {
-    border: 1px solid #444;
-    padding: 8px 16px;
-    color: white;
+.footer-left h5 {
+    font-size: 13px;
+    color: #888;
+    font-weight: 400;
+    margin-top: 16px;
+    max-width: 400px;
+}
+/*  kawasan link nak jadikan dia putih */
+.nav-links a {
+    color: #aaaaaa;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: white;
+
+    /*  for button join now */
+}
+.btn-primary {
+    background-color: #CC0000;
+    color: white;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
 }
-
-.footer-right {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+/*  for button explore  */
+.btn-secondary { 
+    background-color: transparent;
+    color: white;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #444;
+    display: inline-block;
 }
 
-.footer-right h4 {
-    font-size: 11px;
-    letter-spacing: 3px;
+/*  header navigation parts  jadikan dia hitam */
+nav {
+    background-color: rgba(0,0,0,0.85);
+    padding: 0 10px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 2px solid #CC0000;
+}
+/*  ni part logo yang nama tu  */
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1.2;
+}
+
+.nav-logo span {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 7px;
+    color: white;
+}
+/* this is the navigation parts yang announcement apa semua */
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+/*  the place when sign in and log in button */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-login {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid #444;
+    padding: 8px 20px;
+   
+}
+/*  this is the log in button */
+.nav-login:hover { 
+    border-color: white;
+}
+/*  this is the sign up button */
+.nav-btn {
+    background-color: #CC0000;
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+}
+
+.nav-btn:hover {
+    background-color: #990000;
+}
+.stats-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: hidden;
+  background-color: #0a0a0a;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  justify-content: space-between;
+
+}
+
+/* LEFT SIDE this one kotak untuk part tulisan the society */
+.stats-left {
+    width: 50%;
+    padding: 30px 60px 70px 60px;;
+}
+
+.stats-heading {
+    font-size: 60px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stats-heading span {
     color: #CC0000;
+}
+
+.stats-list {
+    display: flex;
+    flex-direction: column;  /* ← stacks vertically */
+}
+
+.stat-item {
+    padding: 5px 0;
+}
+
+.stat-number {
+    font-size: 52px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    margin-top: 2px;
+}
+
+.stat-divider {
+    width: 200%;
+    height: 1px; /* ni line dia bawah number */
+    background-color: #222;
+}
+
+/* RIGHT SIDE */
+.stats-right {
+    width: 50%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.stats-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.announcement-section {
+    padding: 30px 60px 70px 60px;;
+    background-color: #0a0a0a;
+}
+
+.announcement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+.announcement-card {
+    position: relative;
+    background-color: #111;
+    border: 1px solid black;
+    transition: body-color 0.2s;
+}
+.announcement-card :hover {
+    border-color: #CC0000;
+}
+
+.announcement-tag-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #CC0000;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    text-transform: uppercase;
+   
+}
+.announcement-image {
+    height: 200px;
+    background-color: #1a1a1a;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #222; 
+}
+.announcement-placeholder {
+    font-size: 64px;
+    font-weight: 900;
+    color: #aaaaaa;
+    letter-spacing: 2px;
+}
+.announcement-card-body {
+    padding: 24px;
+}
+
+.announcement-date {
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.announcement-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    
+}
+.announcement-desc {
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-family:'Barlow Condensed', sans-serif;
+}
+.read-more {
+    color: #CC0000;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.events-section {
+    padding: 50px 60px;
+    background-color: #0a0a0a;
+    border-top: 1px solid #222;
+    margin-top: 40px;
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.75)),
+        url('/CartClub/image/image2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+.events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.events-heading {
+    font-size: 56px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1;
+}
+
+.events-heading span {
+    color: #CC0000;
+}
+
+.see-more {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-decoration: none;
     text-transform: uppercase;
 }
 
-.footer-right a {
-    color: #888;
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 1px;
+.events-list {
+    display: flex;
+    flex-direction: column;
 }
 
-.footer-right a:hover {
+.event-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+    transition: border-color 0.2s;
+}
+
+.event-row-highlight {
+    border: 1px solid #CC0000;
+    margin-bottom: 16px;
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+.event-month {
+    color: #CC0000;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.event-day {
+    color: white;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.event-divider {
+    width: 1px;
+    height: 50px;
+    background-color: #333;
+}
+
+.event-info {
+    flex: 1;
+}
+
+.event-title {
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.event-meta {
+    display: flex;
+    gap: 20px;
+    color: #888;
+    font-size: 14px;
+}
+
+.event-arrow {
+    color: #CC0000;
+    font-size: 20px;
+}
+
+/*  untuk profile */
+.committee-section {
+    padding: 60px 60px;
+    background-color: #0a0a0a;
+    border-top: 1px solid #222;
+}
+
+.committee-heading {
+    font-size: 56px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-align: left;
+    position: sticky;
+}
+
+.committee-heading span {
     color: #CC0000;
 }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #1a1a1a;
-    font-size: 11px;
-    color: #555;
-    letter-spacing: 1px;
+.committee-sub {
+    font-size: 16px;
+    color: #888;
+    max-width: 600px;
+    margin-bottom: 50px;
 }
+
+.committee-row {
+    display: flex;
+    height: 480px;
+    overflow: hidden;
+}
+
+.committee-card {
+    position: relative;
+    flex: 1;
+   
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 30px 60px;
+    color: white;
+    transition: flex 0.4s ease; 
+    /* untuk kasi dia gerak */
+    overflow: hidden;
+}
+
+
+.committee-card:nth-child(1),
+.committee-card:nth-child(2),
+.committee-card:nth-child(3),
+.committee-card:nth-child(4),
+.committee-card:nth-child(5) 
+{
+    background-color: #111;   /* dark fallback if no photo */
+}
+
+.committee-card:hover {
+    flex: 1.1;
+}
+
+.committee-photo {
+    position: absolute;
+    top: 0;                    /* ← start from top */
+    left: 0;                   /* ← start from left */
+    width: 100%;               /* ← full width */
+    height: 100%;              /* ← full height (not size: 100%) */
+    object-fit: cover;
+    object-position: center top; /* ← shows face not feet */
+    opacity: 0.85;
+}
+
+.committee-card::after {
+    content: '';
+    position: absolute;
+    top: 0;                    /* ← add these */
+    left: 0;                   /* ← add these */
+    width: 100%;               /* ← add these */
+    height: 100%;              /* ← add these */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.8) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.committee-overlay {
+    position: relative;
+    z-index: 2;
+}
+
+.committee-name {
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    margin-top: 200%;
+}
+
+.committee-position {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 1;
+    margin-bottom: 12px;
+}
+
+.committee-know-more {
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 2px;
+}
+.about-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    background-color: #0a0a0a;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.about-left {
+    width: 60%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-right {
+    width: 40%;
+    padding: 30px 30px;
+    color: white;
+}
+.about-desc{
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-family:'Barlow Condensed', sans-serif;
+}
+.cta-section {
+    position: relative;
+    background-color: #CC0000;
+    padding: 100px 60px;
+    overflow: hidden;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-heading {
+    font-size: 56px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 24px;
+}
+
+.cta-desc {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-primary-dark {
+    background-color: #0a0a0a;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn-outline-white {
+    background-color: transparent;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid white;
+}
+.cta-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    opacity: 75;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* footer */
