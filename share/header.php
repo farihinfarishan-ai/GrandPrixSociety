@@ -22,6 +22,7 @@
         <a href="/CartClub/homepage/activities.php">Activities</a>
         <a href="/CartClub/homepage/committee.php">Committee</a>
         <a href="/CartClub/homepage/announcements.php">Announcements</a>
+        <a href="/CartClub/homepage/faq.php">FAQ</a>
     </div>
 
     <!-- RIGHT SIDE — LOGIN + SIGNUP -->
