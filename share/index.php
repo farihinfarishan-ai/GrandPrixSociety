@@ -115,7 +115,7 @@ $total_awards = $award_row['total'];
                 </p>
                 <a href="/CartClub/share/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
 
-                <a href="/CartClub/homepage/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+                <a href="/CartClub/share/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
 
 
                 <div class="announcement-divider"></div>

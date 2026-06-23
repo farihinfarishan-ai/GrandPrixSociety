@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redirect based on their role
             if ($_SESSION['role'] === 'admin') {
                 // If they are an admin, send them to the admin dashboard
-                header("Location: /CartClub/share/indexadmin.php");
+                header("Location: /CartClub/share/admin_dashboard.php");
                 exit();
             } else {
                 // Regular users go to the standard index page
