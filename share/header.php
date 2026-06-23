@@ -1,27 +1,37 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html> 
-    <head> 
-        <title>Grand Prix Society </title>
-        <link rel="stylesheet" href="css/style.css"> // link this untuk guna CSS FILE so semua design sama 
-</head> 
-<body> 
+<html>
+<head>
+    <title>Grand Prix Society</title>
+    <link rel="stylesheet" href="/CartClub/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body id="top">
 
-<nav> // navigate to other static page and access through php file 
-    <a href = "home.php">Home</a> 
-    <a href = "about.php">About</a>
-    <a href = "activities.php">Activities</a>
-    <a href = "contact.php">Contact</a>
-    <a href = "announcements.php">Announcements</a>
-    <a href = "about_us.php">About Us</a> 
+<header>
+<nav>
+    <!-- LOGO -->
+    <div class="nav-logo">
+        Grand Prix<span>Society</span>
+    </div>
 
+    <!-- MIDDLE LINKS -->
+    <div class="nav-links">
+        <a href="/CartClub/share/index.php">Home</a>
+        <a href="/CartClub/share/about.php">About</a>
+        <a href="/CartClub/share/activities.php">Activities</a>
+        <a href="/CartClub/share/committee.php">Committee</a>
+        <a href="/CartClub/share/announcements.php">Announcements</a>
+    </div>
 
-
-     <?php if(isset($_SESSION['user_id'])): ?> // if user id exist then show logout 
-        <a href="/logout.php">Logout</a>
-    <?php else: ?>
-        <a href="/login.php">Login</a> // user id tak wujud so ask to login or sign up
-        <a href="/signup.php">Sign Up</a>
-    <?php endif; ?>
+    <!-- RIGHT SIDE — LOGIN + SIGNUP -->
+    <div class="nav-right">
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <a href="/CartClub/share/logout.php" class="nav-login">Logout</a>
+        <?php else: ?>
+            <a href="/CartClub/share/login.php" class="nav-login">Login</a>
+            <a href="/CartClub/share/signup.php" class="nav-btn">Sign Up</a>
+        <?php endif; ?>
+    </div>
 </nav>
-
+</header>
