@@ -35,8 +35,13 @@ $total_awards = $award_row['total'];
         <p class="top-description">The Grand Prix Society is a student-led organization 
         dedicated to promoting the excitement and culture of motorsports on campus.</p>
         <div class="top-buttons">
+<<<<<<< HEAD
             <a href="/CartClub/share/signup.php" class="btn-primary">JOIN NOW</a>
             <a href="/CartClub/share/login.php" class="btn-secondary">EXPLORE</a>
+=======
+            <a href="/CartClub/homepage/signup.php" class="btn-primary">JOIN NOW</a>
+            <a href="/CartClub/homepage/login.php" class="btn-secondary">EXPLORE</a>
+>>>>>>> 9703fb1b31dcf8252704f309ff11b609edd8668b
         </div>
     </div>
 </div>
@@ -71,7 +76,11 @@ $total_awards = $award_row['total'];
 
    <div class="stats-right" style="
     background-image: linear-gradient(to right, rgba(10,10,10,0.8), rgba(0,0,0,0)),
+<<<<<<< HEAD
     url('/GrandPrixSociety-main/image/lewis2.png');
+=======
+    url('/CartClub/image/lewis2.png');
+>>>>>>> 9703fb1b31dcf8252704f309ff11b609edd8668b
     background-size: cover;
     background-position: center;">
 </div>
@@ -106,7 +115,11 @@ $total_awards = $award_row['total'];
                 <p class="announcement-desc">
                     <?php echo htmlspecialchars(substr($announcement['content'], 0, 100)); ?>...
                 </p>
+<<<<<<< HEAD
                 <a href="/CartClub/share/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+=======
+                <a href="/CartClub/homepage/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+>>>>>>> 9703fb1b31dcf8252704f309ff11b609edd8668b
 
                 <div class="announcement-divider"></div>
             </div>
@@ -184,7 +197,11 @@ echo $event['event_time']
 <!--  this is for the about us  -->
 <div class="about-section">
     <div class="about-left">
+<<<<<<< HEAD
         <img src="/GrandPrixSociety-main/image/about.png" alt="Team Photo" class="about-image">
+=======
+        <img src="/CartClub/image/about.png" alt="Team Photo" class="about-image">
+>>>>>>> 9703fb1b31dcf8252704f309ff11b609edd8668b
     </div>
     <div class="about-right">
         <h2 class="stats-heading">BACK TO <br><span>HISTORY</span></h2>
@@ -205,7 +222,11 @@ echo $event['event_time']
             <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
         </div>
     </div>
+<<<<<<< HEAD
 <img src="/GrandPrixSociety-main/image/cta-car.png" class="cta-image">
+=======
+<img src="/CartClub/image/cta-car.png" class="cta-image">
+>>>>>>> 9703fb1b31dcf8252704f309ff11b609edd8668b
 </div>
 
 <?php include('../share/footer.php'); ?>
