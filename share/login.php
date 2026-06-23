@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "please re-check the following email or password";
     } else {
         // 2. The simple query exactly as you learned it
-        $sql = "SELECT email, password 
+        $sql = "SELECT user_id, email, password, full_name, role
                 FROM users 
                 WHERE email = '$email' 
                 AND password = '$password'";
@@ -29,8 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $row = mysqli_fetch_assoc($result);
             
             // Set session using the actual column name from your table ('username')
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['role'] = $row['role']; // This will hold 'admin' or 'user'
+            $_SESSION['full_name'] = $row['full_name'];
+            $_SESSION['role'] = $row['role'];
+            $_SESSION['user_id']   = $row['user_id'];
+            $_SESSION['email'] = $row['email'];
 
             // Redirect based on their role
             if ($_SESSION['role'] === 'admin') {
@@ -44,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             
         } else {
-            $error = "please re-check the following username or password";
+            $error = "please re-check the following email or password";
         }
     }
 }
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="auth-form-side">
         <div class="auth-form-box">
             <div class="auth-form-header">
-                <h2 class="auth-form-heading">SIGN IN</h2>
+                <h2 class="auth-form-heading">LOG IN</h2>
                 <p class="auth-form-sub">Enter your credentials to access the grid</p>
             </div>
 
@@ -104,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
 
- <button type="submit" class="btn-primary auth-submit-btn">SIGN IN</button>
+ <button type="submit" class="btn-primary auth-submit-btn">LOG IN</button>
             
                    
                 <p class="auth-switch">

@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 echo "PHP is working!";
+session_start();
 // this is for to test the errror 
 
 include('../share/db.php');

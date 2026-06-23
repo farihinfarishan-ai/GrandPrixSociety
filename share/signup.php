@@ -4,6 +4,7 @@ require "db.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email   = $_POST['email'];
+    $full_name = $_POST['full_name'];
     $password = $_POST['password'];
     $confirm  = $_POST['confirm_password'];
 
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // 3. Insert the new user into the database
-    $insert_sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
+    $insert_sql = "INSERT INTO users (email, full_name, password) VALUES ('$email', '$full_name', '$password')";
     
     if (mysqli_query($conn, $insert_sql)) {
         echo "<script>
@@ -80,6 +81,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group">
+                    <label class="form-label" for="full_name">FULL NAME</label>
+                    <input 
+                        class="form-input" 
+                        type="text" 
+                        id="full_name" 
+                        name="full_name" 
+                        placeholder="Your full name"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">    
                     <label class="form-label" for="password">PASSWORD</label>
                     <div class="input-wrap">
                         <input 

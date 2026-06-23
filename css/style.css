@@ -180,6 +180,25 @@ nav {
 }
 /*  ni part logo yang nama tu  */
 
+header-profile {
+    font-size: 40px;
+    font-weight: 000;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1.2;
+
+}
+
+role-profile {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1.2;
+}
+
 .nav-logo {
     font-size: 20px;
     font-weight: 700;
