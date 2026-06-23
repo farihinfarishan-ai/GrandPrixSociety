@@ -15,7 +15,7 @@ $ann_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM announcements");
 $ann_row = mysqli_fetch_assoc($ann_query);
 $total_ann = $ann_row['total'];
 // $conn is the connection to db.php yang connect with database 
-//  count is the total rowns for announcement table 
+// count is the total rows for announcement table 
 // from announcement table 
 // $ann quesry is tempat dia nak ambik results and convert to php so boleh baca
 $event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
@@ -113,9 +113,9 @@ $total_awards = $award_row['total'];
                 <p class="announcement-desc">
                     <?php echo htmlspecialchars(substr($announcement['content'], 0, 100)); ?>...
                 </p>
-                <a href="/CartClub/share/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
 
-                <a href="/CartClub/share/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
 
 
                 <div class="announcement-divider"></div>
