@@ -1,76 +1,70 @@
 <?php
 session_start();
 require "db.php";
-// Initialize the error variable so the HTML doesn't throw a warning on first load
-$error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Grab the inputs (mapped to your HTML form's 'name' attributes)
-    $email = $_POST['email'] ?? ''; 
-    $password = $_POST['password'] ?? '';
+    $email   = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm  = $_POST['confirm_password'];
 
-    // 1. Check if either field was left empty
-    if (empty($email) || empty($password)) {
-        $error = "please re-check the following email or password";
+    // 1. Check if passwords match
+    if ($password !== $confirm) {
+        echo "<script>
+                alert('Passwords do not match!');
+                window.location='signup.php';
+              </script>";
+        exit();
+    }
+
+    // 2. Check if the email already exists
+    $check_sql = "SELECT * FROM users WHERE email = '$email'";
+    $check_result = mysqli_query($conn, $check_sql);
+
+    if (mysqli_num_rows($check_result) > 0) {
+        echo "<script>
+                alert('An account with that email already exists!');
+                window.location='signup.php';
+              </script>";
+        exit();
+    }
+
+    // 3. Insert the new user into the database
+    $insert_sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
+    
+    if (mysqli_query($conn, $insert_sql)) {
+        echo "<script>
+                alert('Account created successfully! You can now sign in.');
+                window.location='login.php';
+              </script>";
+        exit();
     } else {
-        // 2. The simple query exactly as you learned it
-        $sql = "SELECT email, password 
-                FROM users 
-                WHERE email = '$email' 
-                AND password = '$password'";
-
-        // Note: Make sure $conn is established before this runs!
-       $result = mysqli_query($conn, $sql);
-
-        // 3. If a match is found, redirect to the index page
-       if ($result && mysqli_num_rows($result) > 0) {
-            
-            // NOW it is safe to fetch the row data
-            $row = mysqli_fetch_assoc($result);
-            
-            // Set session using the actual column name from your table ('username')
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['role'] = $row['role']; // This will hold 'admin' or 'user'
-
-            // Redirect based on their role
-            if ($_SESSION['role'] === 'admin') {
-                // If they are an admin, send them to the admin dashboard
-                header("Location: /CartClub/share/indexadmin.php");
-                exit();
-            } else {
-                // Regular users go to the standard index page
-                header("Location: /CartClub/share/index.php");
-                exit();
-            }
-            
-        } else {
-            $error = "please re-check the following username or password";
-        }
+        echo "<script>
+                alert('Database error. Could not create account.');
+                window.location='signup.php';
+              </script>";
+        exit();
     }
 }
 ?>
 <?php include 'header.php'; ?>
 
 <div class="auth-wrapper">
-    <div class="auth-visual">
+    <div class="auth-visual auth-visual-signup">
         <div class="auth-visual-content">
-            <p class="auth-tag">
+            <p class="auth-tag">NEW MEMBER ENROLLMENT</p>
+            <h1 class="auth-title">JOIN THE<span>SOCIETY.</span></h1>
+            <p class="auth-description">Become part of a community built on speed, engineering, and a shared passion for motorsport.</p>
+        </div>
+    </div>
 
     <div class="auth-form-side">
         <div class="auth-form-box">
             <div class="auth-form-header">
-                <h2 class="auth-form-heading">SIGN IN</h2>
-                <p class="auth-form-sub">Enter your credentials to access the grid</p>
+                <h2 class="auth-form-heading">CREATE ACCOUNT</h2>
+                <p class="auth-form-sub">Register your account credentials</p>
             </div>
 
-            <?php if (!empty($error)): ?>
-                <div class="auth-alert auth-alert-error">
-                    <span class="alert-icon">⚠</span>
-                    <?php echo htmlspecialchars($error); ?>
-                </div>
-            <?php endif; ?>
-
-            <form method="POST" action="" class="auth-form" novalidate id="login-form">
+            <form method="POST" action="" class="auth-form" novalidate>
 
                 <div class="form-group">
                     <label class="form-label" for="email">EMAIL ADDRESS</label>
@@ -79,8 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         type="email" 
                         id="email" 
                         name="email" 
-                        placeholder="you@university.ac.uk"
-                        value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>"
+                        placeholder="you@gmail.com"
                         autocomplete="email"
                         required
                     >
@@ -94,22 +87,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             type="password" 
                             id="password" 
                             name="password" 
-                            placeholder="Enter your password"
-                            autocomplete="current-password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
                             required
                         >
-                        <button type="button" class="toggle-pw" aria-label="Toggle password visibility" onclick="togglePassword('password', this)">
-                        </button>
-                        <p></p>
                     </div>
                 </div>
 
- <button type="submit" class="btn-primary auth-submit-btn">SIGN IN</button>
-            
-                   
+                <div class="form-group">
+                    <label class="form-label" for="confirm_password">CONFIRM PASSWORD</label>
+                    <div class="input-wrap">
+                        <input 
+                            class="form-input" 
+                            type="password" 
+                            id="confirm_password" 
+                            name="confirm_password" 
+                            placeholder="Repeat your password"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary auth-submit-btn">CREATE ACCOUNT</button>
+
                 <p class="auth-switch">
-                    New member? 
-                    <a href="/CartClub/share/signup.php" class="form-link-bold">CREATE ACCOUNT</a>
+                    Already a member? 
+                    <a href="login.php" class="form-link-bold">SIGN IN</a>
                 </p>
             </form>
         </div>
@@ -129,7 +133,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /* ── Visual / Left panel ───────────────────── */
 .auth-visual {
     flex: 1;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2)), url('/CartClub/image/login_bg.png');
+    /* We use a slightly different gradient/image for the signup page */
+    background-image: linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, #0a0a0a 100%), url('/CartClub/image/lewistop.png');
     background-position: center; 
     background-size: cover; 
     display: flex;
@@ -214,24 +219,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     text-transform: uppercase;
 }
 
-/* ── Alerts ────────────────────────────────── */
-.auth-alert {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 20px;
-    font-size: 16px;
-    margin-bottom: 24px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.auth-alert-error {
-    background-color: rgba(204, 0, 0, 0.1);
-    border: 1px solid #CC0000;
-    color: #CC0000;
-}
-
 /* ── Form elements ─────────────────────────── */
 .auth-form {
     display: flex;
@@ -274,33 +261,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     color: #444;
 }
 
-.input-wrap {
-    position: relative;
-}
-
-.input-wrap .form-input {
-    padding-right: 50px;
-}
-
-.toggle-pw {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #666;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    transition: color 0.2s;
-}
-
-.toggle-pw:hover {
-    color: #CC0000;
-}
-
 /* ── Submit button ─────────────────────────── */
 .auth-submit-btn {
     width: 100%;
@@ -309,12 +269,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     border: none;
     cursor: pointer;
     transition: background-color 0.2s;
+    background-color: #CC0000;
+    color: white;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 .auth-submit-btn:hover {
     background-color: #990000;
 }
 
+/* ── Footer link ───────────────────────────── */
 .auth-switch {
     text-align: center;
     font-size: 16px;
@@ -335,7 +304,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 .form-link-bold:hover {
     color: white;
-} */
+}
 
 /* ── Responsive ────────────────────────────── */
 @media (max-width: 960px) {
@@ -358,16 +327,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 </style>
 
-<script>
-function togglePassword(fieldId, btn) {
-    const input = document.getElementById(fieldId);
-    // const icon  = btn.querySelector('svg');
-    if (input.type === 'password') {
-        input.type = 'text';
-    //     icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
-    } else {
-        input.type = 'password';
-        // icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
-    }
-}
-</script>
+<?php include 'footer.php'; ?>
