@@ -4,20 +4,20 @@ ini_set('display_errors', 1);
 
 include ('../share/db.php');
 
-// $member_query = mysqli_query ($conn, "SELECT COUNT(*) as total FROM users WHERE role = 'user'");
-// $member_row = mysqli_fetch_assoc($member_query);
-// $total_members = $member_row['total'];
+$member_query = mysqli_query ($conn, "SELECT COUNT(*) as total FROM users WHERE role = 'user'");
+$member_row = mysqli_fetch_assoc($member_query);
+$total_members = $member_row['total'];
 
-// $event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
-// $event_row = mysqli_fetch_assoc($event_query);
-// $total_members = $member_row['total'];
+$event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
+$event_row = mysqli_fetch_assoc($event_query);
+$total_members = $member_row['total'];
 
-// $award_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM awards");
-// $award_row = mysqli_query($award_query);
-// $total_awards = $award_row['total'];
+$award_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM awards");
+$award_row = mysqli_fetch_assoc($award_query);
+$total_awards = $award_row['total'];
 
-// $committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");
-// ?>
+$committee_query = mysqli_fetch_assoc($conn, "SELECT * FROM committee ORDER BY display_order ASC");
+?>
 
 <?php include('../share/header.php'); ?>
 

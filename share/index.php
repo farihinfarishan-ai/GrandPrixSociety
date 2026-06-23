@@ -38,7 +38,7 @@ $total_awards = $award_row['total'];
         <div class="top-buttons">
 
             <a href="/CartClub/share/signup.php" class="btn-primary">JOIN NOW</a>
-            <a href="/CartClub/share/login.php" class="btn-secondary">EXPLORE</a>
+            <a href="/CartClub/share/about.php" class="btn-secondary">EXPLORE</a>
 
         </div>
     </div>
