@@ -17,12 +17,12 @@
 
     <!-- MIDDLE LINKS -->
     <div class="nav-links">
-        <a href="/CartClub/homepage/index.php">Home</a>
-        <a href="/CartClub/homepage/about.php">About</a>
-        <a href="/CartClub/homepage/activities.php">Activities</a>
-        <a href="/CartClub/homepage/committee.php">Committee</a>
-        <a href="/CartClub/homepage/announcements.php">Announcements</a>
-        <a href="/CartClub/homepage/faq.php">FAQ</a>
+        <a href="/CartClub/share/index.php">Home</a>
+        <a href="/CartClub/share/about.php">About</a>
+        <a href="/CartClub/share/activities.php">Activities</a>
+        <a href="/CartClub/share/committee.php">Committee</a>
+        <a href="/CartClub/share/announcements.php">Announcements</a>
+        <a href="/CartClub/share/faq.php">FAQ</a>
     </div>
 
     <!-- RIGHT SIDE — LOGIN + SIGNUP -->
