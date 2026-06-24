@@ -77,7 +77,7 @@ $hasResults = mysqli_num_rows($events_query) > 0;
                     <div class="event-info">
                         <h3 class="event-title"><?php echo htmlspecialchars($event['title']); ?></h3>
                         <div class="event-meta">
-                            <span class="event-location">📍 <?php echo htmlspecialchars($event['location']); ?></span>
+                            <span class="event-location">📍 <?php echo htmlspecialchars($event['location'] ?? 'TBC'); ?></span>
                             <span class="event-time">🕒 <?php 
                                 echo $event['event_time']       
                                     ? date('h:i A', strtotime($event['event_time'])) 

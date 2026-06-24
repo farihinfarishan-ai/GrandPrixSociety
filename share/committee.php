@@ -357,25 +357,4 @@ while ($row = mysqli_fetch_assoc($committee_query)) {
     </div>
 </div> -->
 
-
-
-
-
-
-
-
-
-
-<div class="cta-section">
-    <div class="cta-content">
-        <h2 class="cta-heading">WANT TO BE <br>PART OF THE TEAM?</h2>
-        <p class="cta-desc">Membership is open for Season 2026. Lock in your spot before lights out.</p>
-        <div class="cta-buttons">
-            <a href="signup.php" class="btn-primary-dark">SIGN UP →</a>
-            <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
-        </div>
-    </div>
-    <img src="/CartClub/image/cta-car.png" class="cta-image">
-</div>
-
 <?php include('../share/footer.php'); ?>
