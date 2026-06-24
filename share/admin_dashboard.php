@@ -64,12 +64,13 @@ foreach ([
 <div class="dash-wrapper">
  
     <div class="dash-header">
-        <h1>⚙️ ADMIN DASHBOARD</h1>
+        <h1>ADMIN DASHBOARD</h1>
         <div>
             <span style="color:#555; margin-right:16px;">
                 Logged in as <strong style="color:#ccc"><?php echo htmlspecialchars($_SESSION['full_name'] ?? 'Admin'); ?></strong>
             </span>
-            <a href="/logout.php">Logout →</a>
+            <a href="/CartClub/share/logout.php">Logout →</a>
+            
         </div>
     </div>
  
@@ -113,6 +114,12 @@ foreach ([
             <div class="icon">👤</div>
             <h3>COMMITTEE</h3>
             <p>Add or update committee members with their role, bio, photo, and display order.</p>
+            <span class="arrow">MANAGE →</span>
+        </a>
+          <a class="section-card" href="admin_members.php">
+            <div class="icon">👥</div>
+            <h3>MEMBERS</h3>
+            <p>View all registered members, add new accounts, or remove existing users.</p>
             <span class="arrow">MANAGE →</span>
         </a>
     </div>

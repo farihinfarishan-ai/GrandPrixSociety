@@ -16,7 +16,7 @@ $award_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM awards");
 $award_row = mysqli_fetch_assoc($award_query);
 $total_awards = $award_row['total'];
 
-$committee_query = mysqli_fetch_assoc($conn, "SELECT * FROM committee ORDER BY display_order ASC");
+$committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");
 ?>
 
 <?php include('../share/header.php'); ?>
