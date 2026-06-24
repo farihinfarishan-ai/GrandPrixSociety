@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 echo "PHP is working!";
+session_start();
 // this is for to test the errror 
 
 include('../share/db.php');
@@ -14,7 +15,7 @@ $ann_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM announcements");
 $ann_row = mysqli_fetch_assoc($ann_query);
 $total_ann = $ann_row['total'];
 // $conn is the connection to db.php yang connect with database 
-//  count is the total rowns for announcement table 
+// count is the total rows for announcement table 
 // from announcement table 
 // $ann quesry is tempat dia nak ambik results and convert to php so boleh baca
 $event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
@@ -35,8 +36,10 @@ $total_awards = $award_row['total'];
         <p class="top-description">The Grand Prix Society is a student-led organization 
         dedicated to promoting the excitement and culture of motorsports on campus.</p>
         <div class="top-buttons">
-            <a href="/CartClub/homepage/signup.php" class="btn-primary">JOIN NOW</a>
-            <a href="/CartClub/homepage/login.php" class="btn-secondary">EXPLORE</a>
+
+            <a href="/CartClub/share/signup.php" class="btn-primary">JOIN NOW</a>
+            <a href="/CartClub/share/about.php" class="btn-secondary">EXPLORE</a>
+
         </div>
     </div>
 </div>
@@ -71,7 +74,11 @@ $total_awards = $award_row['total'];
 
    <div class="stats-right" style="
     background-image: linear-gradient(to right, rgba(10,10,10,0.8), rgba(0,0,0,0)),
+
+    url('/GrandPrixSociety-main/image/lewis2.png');
+
     url('/CartClub/image/lewis2.png');
+
     background-size: cover;
     background-position: center;">
 </div>
@@ -106,7 +113,10 @@ $total_awards = $award_row['total'];
                 <p class="announcement-desc">
                     <?php echo htmlspecialchars(substr($announcement['content'], 0, 100)); ?>...
                 </p>
-                <a href="/CartClub/homepage/announcement.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+
+                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
+
 
                 <div class="announcement-divider"></div>
             </div>
@@ -184,7 +194,9 @@ echo $event['event_time']
 <!--  this is for the about us  -->
 <div class="about-section">
     <div class="about-left">
+
         <img src="/CartClub/image/about.png" alt="Team Photo" class="about-image">
+
     </div>
     <div class="about-right">
         <h2 class="stats-heading">BACK TO <br><span>HISTORY</span></h2>
@@ -205,7 +217,11 @@ echo $event['event_time']
             <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
         </div>
     </div>
+
+<img src="/GrandPrixSociety-main/image/cta-car.png" class="cta-image">
+
 <img src="/CartClub/image/cta-car.png" class="cta-image">
+
 </div>
 
 <?php include('../share/footer.php'); ?>
