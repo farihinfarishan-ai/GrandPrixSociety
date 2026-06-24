@@ -31,14 +31,14 @@ $event_date = !empty($_POST['event_date']) ? "'" . mysqli_real_escape_string($co
         mysqli_query($conn,
             "UPDATE events
              SET title='$title', description='$description',
-                 event_date='$event_date', event_time=$event_time, location='$location'
+                 event_date='$event_date', event_time='$event_time', location='$location'
              WHERE event_id=$id"
         );
         $message = 'Event updated successfully.';
     } else {
         mysqli_query($conn,
             "INSERT INTO events (title, description, event_date, event_time, location, created_by)
-             VALUES ('$title', '$description', '$event_date', $event_time, '$location', $created_by)"
+             VALUES ('$title', '$description', '$event_date', '$event_time', '$location', $created_by)"
         );
         $message = 'Event added successfully.';
     }
