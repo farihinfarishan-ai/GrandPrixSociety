@@ -18,16 +18,15 @@ $total_events = $event_row['total'];
     </div>
 </div>
 
-<div class="events-section">
+<div class="events-back">
     <div class="events-header">
         <h2 class="events-heading">UPCOMING <span>EVENTS</span></h2>
-        <a href="events.php" class="see-more">SEE MORE →</a>
     </div>
 
     <div class="events-list">
         <?php
         $events_query = mysqli_query($conn, 
-            "SELECT * FROM events ORDER BY event_date ASC LIMIT 3");
+            "SELECT * FROM events ORDER BY event_date ASC ");
         
         $i = 0;
         while($event = mysqli_fetch_assoc($events_query)): 
@@ -59,3 +58,18 @@ echo $event['event_time']
 </div>
 
 <?php include('../share/footer.php'); ?>
+
+<style>
+    .events-back {
+        padding: 50px 60px;
+        background-color: #0a0a0a;
+        border-top: 1px solid #222;
+        margin-top: 40px;
+        background-image:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+            url('/CartClub/images/actv.avif');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
