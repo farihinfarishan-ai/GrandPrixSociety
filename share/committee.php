@@ -337,8 +337,6 @@ while ($row = mysqli_fetch_assoc($committee_query)) {
     <?php endforeach; ?>
 </div>
 
-
-
     <!-- <div class="committee-row">
         <?php while($member = mysqli_fetch_assoc($committee_query)): ?>
             <div class="committee-card">

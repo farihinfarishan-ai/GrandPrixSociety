@@ -37,14 +37,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_query($conn,
             "UPDATE events
              SET title='$title', description='$description',
+<<<<<<< HEAD
+                 event_date='$event_date', event_time='$event_time', location='$location'
+=======
                  event_date=$event_date_sql, event_time=$event_time_sql, location='$location'
+>>>>>>> cff18ad2ad277ca1094c2eed5f946808f2919e9f
              WHERE event_id=$id"
         );
         $message = 'Event updated successfully.';
     } else {
         mysqli_query($conn,
             "INSERT INTO events (title, description, event_date, event_time, location, created_by)
+<<<<<<< HEAD
+             VALUES ('$title', '$description', '$event_date', '$event_time', '$location', $created_by)"
+=======
              VALUES ('$title', '$description', $event_date_sql, $event_time_sql, '$location', $created_by)"
+>>>>>>> cff18ad2ad277ca1094c2eed5f946808f2919e9f
         );
         $message = 'Event added successfully.';
     }
