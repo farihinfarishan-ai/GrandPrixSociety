@@ -28,36 +28,134 @@ foreach ([
     <title>Admin Dashboard | Grand Prix Society</title>
     <link rel="stylesheet" href="/CartClub/GrandPrixSocietycss/style.css">
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background:#0a0a0a; color:#f0f0f0; margin:0; }
-        .dash-wrapper { max-width:900px; margin:50px auto; padding:0 24px; }
-        .dash-header { display:flex; align-items:center; justify-content:space-between;
-                       margin-bottom:40px; }
-        .dash-header h1 { color:#e10600; letter-spacing:2px; margin:0; }
-        .dash-header a  { color:#777; font-size:.85rem; text-decoration:none; }
-        .dash-header a:hover { color:#fff; }
+        * {
+             box-sizing: border-box;
+         }
+        body
+         {
+             font-family: Arial, sans-serif;
+              background:#0a0a0a;
+               color:#f0f0f0;
+                margin:0;
+         }
+        .dash-wrapper
+         {
+             max-width:900px;
+              margin:50px auto;
+               padding:0 24px;
+         }
+        .dash-header
+         {
+             display:flex;
+              align-items:center;
+             justify-content:space-between;
+             margin-bottom:40px;
+         }
+        .dash-header h1
+         {
+             color:#e10600;
+              letter-spacing:2px;
+               margin:0;
+         }
+        .dash-header a 
+         {
+             color:#777;
+              font-size:.85rem;
+               text-decoration:none;
+         }
+        .dash-header a:hover
+         {
+             color:#fff;
+         }
  
         /* stat cards row */
-        .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:48px; }
-        .stat-card { background:#141414; border:1px solid #222; border-radius:8px;
-                     padding:20px 16px; text-align:center; }
-        .stat-card .num { font-size:2rem; font-weight:bold; color:#e10600; }
-        .stat-card .lbl { font-size:.78rem; color:#777; text-transform:uppercase;
-                          letter-spacing:1px; margin-top:4px; }
+        .stat-row
+         {
+             display:grid;
+             grid-template-columns:repeat(4,1fr);
+             gap:16px;
+             margin-bottom:48px;
+         }
+        .stat-card
+         {
+             background:#141414;
+             border:1px solid #222;
+             border-radius:8px;
+             padding:20px 16px;
+             text-align:center;
+         }
+        .stat-card .num
+         {
+             font-size:2rem;
+             font-weight:bold;
+             color:#e10600; }
+        .stat-card .lbl
+         {
+             font-size:.78rem;
+             color:#777;
+             text-transform:uppercase;
+             letter-spacing:1px; margin-top:4px;
+         }
  
         /* section cards */
-        .section-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-        .section-card { background:#141414; border:1px solid #222; border-radius:8px;
-                        padding:28px 22px; text-decoration:none; color:#f0f0f0;
-                        transition: border-color .2s, transform .15s; display:block; }
-        .section-card:hover { border-color:#e10600; transform:translateY(-3px); }
-        .section-card .icon { font-size:2rem; margin-bottom:12px; }
-        .section-card h3 { margin:0 0 6px; font-size:1.05rem; color:#fff; letter-spacing:1px; }
-        .section-card p  { margin:0; font-size:.82rem; color:#666; line-height:1.5; }
-        .section-card .arrow { color:#e10600; font-size:1.1rem; margin-top:16px;
-                               display:block; font-weight:bold; }
-        h2 { color:#ccc; font-size:.85rem; text-transform:uppercase;
-             letter-spacing:2px; margin-bottom:16px; }
+        .section-grid
+         {
+         display:grid;
+          grid-template-columns:repeat(4,1fr);
+           gap:20px;
+         }
+        .section-card
+         {
+         background:#141414;
+          border:1px solid #222;
+         border-radius:8px;
+         padding:28px 22px;
+          text-decoration:none;
+           color:#f0f0f0;     
+           transition: border-color .2s, transform .15s;
+            display:block;
+         }
+
+        .section-card:hover
+         {
+         border-color:#e10600;
+          transform:translateY(-3px);
+         }
+        .section-card .icon
+         {
+         font-size:2rem;
+          margin-bottom:12px;
+         }
+        .section-card h3
+         {
+         margin:0 0 6px;
+          font-size:1.05rem;
+           color:#fff;
+            letter-spacing:1px;
+         }
+        .section-card p 
+         {
+         margin:0;
+         font-size:.82rem;
+          color:#666;
+           line-height:1.5;
+         }
+        .section-card .arrow
+         {
+         color:#e10600;
+          font-size:1.1rem;
+           margin-top:16px;
+          display:block;
+           font-weight:bold;
+         }
+        h2
+         {
+         color:#ccc;
+         font-size:.85rem;
+          text-transform:uppercase;
+             letter-spacing:2px;
+              margin-bottom:16px;
+         }
     </style>
 </head>
 <body>

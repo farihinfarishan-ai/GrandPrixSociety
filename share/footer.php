@@ -31,10 +31,10 @@
            <div class="nav-links">
         <a href="/CartClub/share/index.php">Home</a>
         <a href="/CartClub/share/about.php">About</a>
-        <a href="/CartClub/share/activities.php">Events</a>
+        <a href="/CartClub/share/events.php">Events</a>
         <a href="/CartClub/share/announcements.php">News</a>
         <a href="/CartClub/share/committee.php">Committee</a>
-        <a href="/CartClub/share/contact.php">Contact</a>
+        <a href="/CartClub/share/faq.php">Contact</a>
     </div>
         </div>
     </div>
