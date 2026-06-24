@@ -58,28 +58,36 @@ if (!$announcement) {
         </div>
     </div>
 </div>
-
 </body>
 </html>
 
 <style>
     body {
+        position: relative;
         padding-top: 90px;
+        min-height: 100vh;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-image: url('/CartClub/image/lewistop.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
-        min-height: 100vh;
+        filter: blur(8px) brightness(0.4);
+        transform: scale(1.1);
+        z-index: -2;
     }
-    
+
     .opacity {
-        background: #0b0b0bf1;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        position: relative;
         min-height: 100vh;
+        z-index: 1;
     }
 
     .announcement-detail-page {
@@ -93,7 +101,7 @@ if (!$announcement) {
         margin-bottom: 20px;
         margin-top: 20px;
         text-decoration: none;
-        color: #b80000;
+        color: #fff;
         font-weight: bold;
     }
 
