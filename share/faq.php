@@ -134,7 +134,7 @@ ini_set('display_errors', 1);
         <p class="cta-desc">Reach out to the committee directly and we'll get back to you.</p>
         <div class="cta-buttons">
             <a href="signup.php" class="btn-primary-dark">SIGN UP →</a>
-            <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
+            <a href="committee.php" class="btn-outline-white">GET IN TOUCH</a>
         </div>
         <!-- basically button which directly brings to contact page or registration page as user -->
     </div>
