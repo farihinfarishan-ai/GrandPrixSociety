@@ -21,8 +21,14 @@ if (isset($_GET['delete'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title       = mysqli_real_escape_string($conn, trim($_POST['title']));
     $description = mysqli_real_escape_string($conn, trim($_POST['description']));
-$event_date = !empty($_POST['event_date']) ? "'" . mysqli_real_escape_string($conn, $_POST['event_date']) . "'" : 'NULL';
-    $event_time  = !empty($_POST['event_time']) ? "'" . mysqli_real_escape_string($conn, $_POST['event_time']) . "'" : 'NULL';
+    $event_date = !empty($_POST['event_date']) 
+    ? mysqli_real_escape_string($conn, $_POST['event_date']) 
+    : NULL;
+    $event_date_sql = $event_date ? "'$event_date'" : 'NULL';
+    $event_time = !empty($_POST['event_time']) 
+    ? mysqli_real_escape_string($conn, $_POST['event_time']) 
+    : NULL;
+    $event_time_sql = $event_time ? "'$event_time'" : 'NULL';
     $location    = mysqli_real_escape_string($conn, trim($_POST['location']));
     $created_by  = $_SESSION['user_id'];
  
@@ -31,14 +37,14 @@ $event_date = !empty($_POST['event_date']) ? "'" . mysqli_real_escape_string($co
         mysqli_query($conn,
             "UPDATE events
              SET title='$title', description='$description',
-                 event_date='$event_date', event_time=$event_time, location='$location'
+                 event_date=$event_date_sql, event_time=$event_time_sql, location='$location'
              WHERE event_id=$id"
         );
         $message = 'Event updated successfully.';
     } else {
         mysqli_query($conn,
             "INSERT INTO events (title, description, event_date, event_time, location, created_by)
-             VALUES ('$title', '$description', '$event_date', $event_time, '$location', $created_by)"
+             VALUES ('$title', '$description', $event_date_sql, $event_time_sql, '$location', $created_by)"
         );
         $message = 'Event added successfully.';
     }
