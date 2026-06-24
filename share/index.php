@@ -75,7 +75,7 @@ $total_awards = $award_row['total'];
    <div class="stats-right" style="
     background-image: linear-gradient(to right, rgba(10,10,10,0.8), rgba(0,0,0,0)),
 
-    url('/GrandPrixSociety-main/image/lewis2.png');
+    /* url('/GrandPrixSociety-main/image/lewis2.png'); */
 
     url('/CartClub/image/lewis2.png');
 

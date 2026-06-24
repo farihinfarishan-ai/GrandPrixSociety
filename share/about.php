@@ -10,26 +10,16 @@ $total_members = $member_row['total'];
 
 $event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
 $event_row = mysqli_fetch_assoc($event_query);
-<<<<<<< HEAD
 $total_events = $event_row['total'];
-=======
 $total_members = $member_row['total'];
->>>>>>> d3fbb5d2996fd99a46214f854ac86bada1d5034c
+
 
 $award_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM awards");
 $award_row = mysqli_fetch_assoc($award_query);
 $total_awards = $award_row['total'];
 
-<<<<<<< HEAD
-$committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");
-=======
-<<<<<<< HEAD
 $committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");//all this to collect the number of events and connect back to the page, so its dynamic
 
-=======
-$committee_query = mysqli_fetch_assoc($conn, "SELECT * FROM committee ORDER BY display_order ASC");
->>>>>>> d3fbb5d2996fd99a46214f854ac86bada1d5034c
->>>>>>> 6e2d1db99b6a9f1dc660fb31017417c98e1976b6
 ?>
 
 <?php include('../share/header.php'); ?>

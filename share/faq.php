@@ -119,6 +119,11 @@ ini_set('display_errors', 1);
             <summary class="faq-question">Can I be part of the committee?</summary>
             <p class="faq-answer">Committee positions open up each season and are voted on by active members. Keep an eye on the Announcements page for nomination periods.</p>
         </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">How can you contact us?</summary>
+            <p class="faq-answer">You can contact us through our Instagram and the HWUMSA page. You can also call us at +6013676767.</p>
+        </details>
     </div>
 </div>
 <!-- information can be variable, not fixed -->
@@ -130,7 +135,8 @@ ini_set('display_errors', 1);
         <div class="cta-buttons">
             <a href="signup.php" class="btn-primary-dark">SIGN UP →</a>
             <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
-        </div>//basically button which directly brings to contact page or registration page as user
+        </div>
+        <!-- basically button which directly brings to contact page or registration page as user -->
     </div>
     <img src="/CartClub/image/cta-car.png" class="cta-image">
     <!-- for decorative purposes-image -->
