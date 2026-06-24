@@ -95,20 +95,6 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
     <?php endif; ?>
 </div>
 
-<div class="anouncement-detail">
-    <div class="announcement-left">
-
-        <img src="/CartClub/image/about.png" alt="Team Photo" class="about-image">
-
-    </div>
-    <div class="announcement-right">
-        <h2 class="stats-heading">BACK TO <br><span>HISTORY</span></h2>
-        <p class = "about-desc"> We are the Grand Prix Society. 
-        The club challenges students to design, build, and market single-seat, 
-        open-wheel race cars to compete in the annual summer engineering competitions 
-        hosted at the iconic Silverstone circuit in the UK. </p> 
-</div>
-
 <style>
     .announcement-grid {
         display: flex;
