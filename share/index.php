@@ -136,8 +136,7 @@ $total_awards = $award_row['total'];
             $day = date('d', strtotime($event['event_date']));
             $i++;
         ?>
-            <a href="/CartClub/share/event-single.php?id=<?php echo $event['event_id']; ?>" 
-               class="event-row <?php echo $i === 1 ? 'event-row-highlight' : ''; ?>">
+            <div class="event-row <?php echo $i === 1 ? 'event-row-highlight' : ''; ?>">
                 <div class="event-date">
                     <span class="event-month"><?php echo $month; ?></span>
                     <span class="event-day"><?php echo $day; ?></span>
@@ -147,14 +146,14 @@ $total_awards = $award_row['total'];
                     <h3 class="event-title"><?php echo htmlspecialchars($event['title']); ?></h3>
                     <div class="event-meta">
                         <span class="event-location">📍 <?php echo htmlspecialchars($event['location']); ?></span>
-                        <span class="event-time">🕒 <?php // CORRECT — check before formatting
-echo $event['event_time']       
-    ? date('h:i A', strtotime($event['event_time'])) 
-    : 'TBC'; ?></span>
+                        <span class="event-time">🕒 <?php 
+                            echo $event['event_time']       
+                                ? date('h:i A', strtotime($event['event_time'])) 
+                                : 'TBC'; ?></span>
                     </div>
                 </div>
                 <span class="event-arrow">→</span>
-            </a>
+            </div>
         <?php endwhile; ?>
     </div>
 </div>
@@ -210,7 +209,7 @@ echo $event['event_time']
         <p class="cta-desc">Membership is open for Season 2026. Lock in your spot before lights out.</p>
         <div class="cta-buttons">
             <a href="signup.php" class="btn-primary-dark">SIGN UP →</a>
-            <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
+            <a href="events.php" class="btn-outline-white">DISCOVER</a>
         </div>
     </div>
 

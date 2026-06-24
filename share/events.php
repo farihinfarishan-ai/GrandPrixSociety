@@ -58,40 +58,38 @@ $hasResults = mysqli_num_rows($events_query) > 0;
     </div>
 
     <div class="events-list">
-        <?php
-        $events_query = mysqli_query($conn, 
-            "SELECT * FROM events ORDER BY event_date ASC");
-        
-        $i = 0;
-        while($event = mysqli_fetch_assoc($events_query)): 
-            $month = strtoupper(date('M', strtotime($event['event_date'])));
-            $day = date('d', strtotime($event['event_date']));
-            $i++;
-        ?>
-            <a href="event-single.php?id=<?php echo $event['event_id']; ?>" 
-               class="event-row <?php echo $i === 1 ? 'event-row-highlight' : ''; ?>">
-                <div class="event-date">
-                    <span class="event-month"><?php echo $month; ?></span>
-                    <span class="event-day"><?php echo $day; ?></span>
-                </div>
-                <div class="event-divider"></div>
-                <div class="event-info">
-                    <h3 class="event-title"><?php echo htmlspecialchars($event['title']); ?></h3>
-                    <div class="event-meta">
-                        <span class="event-location">📍 <?php echo htmlspecialchars($event['location']); ?></span>
-                        <span class="event-time">🕒 <?php // CORRECT — check before formatting
-echo $event['event_time']       
-    ? date('h:i A', strtotime($event['event_time'])) 
-    : 'TBC'; ?></span>
+        <?php if (!$hasResults): ?>
+            <p class="no-results">No events found matching "<?php echo htmlspecialchars($search); ?>".</p>
+        <?php else: ?>
+            <?php
+            $i = 0;
+            while($event = mysqli_fetch_assoc($events_query)): 
+                $month = strtoupper(date('M', strtotime($event['event_date'])));
+                $day = date('d', strtotime($event['event_date']));
+                $i++;
+            ?>
+                <div class="event-row <?php echo $i === 1 ? 'event-row-highlight' : ''; ?>">
+                    <div class="event-date">
+                        <span class="event-month"><?php echo $month; ?></span>
+                        <span class="event-day"><?php echo $day; ?></span>
                     </div>
+                    <div class="event-divider"></div>
+                    <div class="event-info">
+                        <h3 class="event-title"><?php echo htmlspecialchars($event['title']); ?></h3>
+                        <div class="event-meta">
+                            <span class="event-location">📍 <?php echo htmlspecialchars($event['location']); ?></span>
+                            <span class="event-time">🕒 <?php 
+                                echo $event['event_time']       
+                                    ? date('h:i A', strtotime($event['event_time'])) 
+                                    : 'TBC'; ?></span>
+                        </div>
+                    </div>
+                    <span class="event-arrow">→</span>
                 </div>
-                <span class="event-arrow">→</span>
-            </a>
-        <?php endwhile; ?>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
 </div>
-
-<?php include('../share/footer.php'); ?>
 
 <style>
     .top-section {
@@ -116,7 +114,7 @@ echo $event['event_time']
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     .events-search {
@@ -161,4 +159,7 @@ echo $event['event_time']
         padding: 40px;
         text-align: center;
         color: #888;
+    }
 </style>
+
+<?php include('../share/footer.php'); ?>
