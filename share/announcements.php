@@ -129,7 +129,7 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
     }
 
     .announcement-search {
-        margin-bottom: 0px;
+        margin-bottom: 30px;
     }
 
     .search-form {

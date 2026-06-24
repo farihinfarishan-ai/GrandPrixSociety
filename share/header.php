@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +29,9 @@
     <div class="nav-right">
         <?php if(isset($_SESSION['user_id'])): ?>
           <?php if($_SESSION['role'] === 'admin'): ?>
-          <a href="/CartClub/share/admin_dashboard.php"> Dashboard</a>
+          <a href="/CartClub/share/admin_dashboard.php" class="nav-login"> Dashboard </a>
         <?php else: ?>
-         <a href="/CartClub/share/login.php">Login</a>
-         <a href="/CartClub/share/signup.php">Sign Up</a>
+         
           <?php endif; ?>
             <div class="header-profile">
                 <?php echo htmlspecialchars($_SESSION['full_name'] ?? 'Member'); ?> <br> 

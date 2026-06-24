@@ -21,8 +21,14 @@ if (isset($_GET['delete'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title       = mysqli_real_escape_string($conn, trim($_POST['title']));
     $description = mysqli_real_escape_string($conn, trim($_POST['description']));
-    $event_date  = mysqli_real_escape_string($conn, trim($_POST['event_date']));
-    $event_time  = !empty($_POST['event_time']) ? "'" . mysqli_real_escape_string($conn, $_POST['event_time']) . "'" : 'NULL';
+    $event_date = !empty($_POST['event_date']) 
+    ? mysqli_real_escape_string($conn, $_POST['event_date']) 
+    : NULL;
+    $event_date_sql = $event_date ? "'$event_date'" : 'NULL';
+    $event_time = !empty($_POST['event_time']) 
+    ? mysqli_real_escape_string($conn, $_POST['event_time']) 
+    : NULL;
+    $event_time_sql = $event_time ? "'$event_time'" : 'NULL';
     $location    = mysqli_real_escape_string($conn, trim($_POST['location']));
     $created_by  = $_SESSION['user_id'];
  
@@ -31,14 +37,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_query($conn,
             "UPDATE events
              SET title='$title', description='$description',
-                 event_date='$event_date', event_time=$event_time, location='$location'
+<<<<<<< HEAD
+                 event_date='$event_date', event_time='$event_time', location='$location'
+=======
+                 event_date=$event_date_sql, event_time=$event_time_sql, location='$location'
+>>>>>>> cff18ad2ad277ca1094c2eed5f946808f2919e9f
              WHERE event_id=$id"
         );
         $message = 'Event updated successfully.';
     } else {
         mysqli_query($conn,
             "INSERT INTO events (title, description, event_date, event_time, location, created_by)
-             VALUES ('$title', '$description', '$event_date', $event_time, '$location', $created_by)"
+<<<<<<< HEAD
+             VALUES ('$title', '$description', '$event_date', '$event_time', '$location', $created_by)"
+=======
+             VALUES ('$title', '$description', $event_date_sql, $event_time_sql, '$location', $created_by)"
+>>>>>>> cff18ad2ad277ca1094c2eed5f946808f2919e9f
         );
         $message = 'Event added successfully.';
     }
@@ -113,7 +127,7 @@ $all = mysqli_query($conn, "SELECT * FROM events ORDER BY event_date ASC");
         <div class="msg"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
  
-    <!-- ── ADD / EDIT FORM ──────────────────────────────────────────── -->
+    <!-- ADD / EDIT FORM -->
     <div class="admin-form">
         <h2><?php echo $edit_data ? '✏️ Edit Event' : '➕ Add New Event'; ?></h2>
         <form method="POST">
@@ -130,8 +144,8 @@ $all = mysqli_query($conn, "SELECT * FROM events ORDER BY event_date ASC");
  
             <div class="form-row">
                 <div>
-                    <label>Event Date *</label>
-                    <input type="date" name="event_date" required
+                    <label>Event Date (optional)</label>
+                    <input type="date" name="event_date"
                            value="<?php echo $edit_data ? $edit_data['event_date'] : ''; ?>">
                 </div>
                 <div>

@@ -184,7 +184,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
                 <div>
                     <label>Role *</label>
                     <select name="role">
-                        <option value="user">Common Member</option>
+                        <option value="user">User<option>
                         <option value="admin">Admin</option>
                     </select>
                 </div>

@@ -46,7 +46,7 @@ foreach ([
                           letter-spacing:1px; margin-top:4px; }
  
         /* section cards */
-        .section-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+        .section-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
         .section-card { background:#141414; border:1px solid #222; border-radius:8px;
                         padding:28px 22px; text-decoration:none; color:#f0f0f0;
                         transition: border-color .2s, transform .15s; display:block; }

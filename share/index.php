@@ -31,7 +31,7 @@ $total_awards = $award_row['total'];
 
 <div class="top-section"> 
     <div class="top-section-content">
-        <p class="top-tag">   2026 UNIVERSITY GRAND PRIX   </p>
+        <p class="top-tag">-- 2026 UNIVERSITY GRAND PRIX --</p>
         <h1 class="top-title">GRAND PRIX <span>SOCIETY</span></h1>
         <p class="top-description">The Grand Prix Society is a student-led organization 
         dedicated to promoting the excitement and culture of motorsports on campus.</p>
@@ -113,11 +113,7 @@ $total_awards = $award_row['total'];
                 <p class="announcement-desc">
                     <?php echo htmlspecialchars(substr($announcement['content'], 0, 100)); ?>...
                 </p>
-                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
-
-                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
-
-
+                <a href="/CartClub/share/description.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
                 <div class="announcement-divider"></div>
             </div>
         </div>
@@ -140,8 +136,7 @@ $total_awards = $award_row['total'];
             $day = date('d', strtotime($event['event_date']));
             $i++;
         ?>
-            <a href="event-single.php?id=<?php echo $event['event_id']; ?>" 
-               class="event-row <?php echo $i === 1 ? 'event-row-highlight' : ''; ?>">
+            <div class="event-row <?php echo $i === 1 ? 'event-row-highlight' : ''; ?>">
                 <div class="event-date">
                     <span class="event-month"><?php echo $month; ?></span>
                     <span class="event-day"><?php echo $day; ?></span>
@@ -150,15 +145,15 @@ $total_awards = $award_row['total'];
                 <div class="event-info">
                     <h3 class="event-title"><?php echo htmlspecialchars($event['title']); ?></h3>
                     <div class="event-meta">
-                        <span class="event-location">📍 <?php echo htmlspecialchars($event['location']); ?></span>
-                        <span class="event-time">🕒 <?php // CORRECT — check before formatting
-echo $event['event_time']       
-    ? date('h:i A', strtotime($event['event_time'])) 
-    : 'TBC'; ?></span>
+                        <span class="event-location">📍 <?php echo htmlspecialchars($event['location'] ?? 'TBC'); ?></span>
+                        <span class="event-time">🕒 <?php 
+                            echo $event['event_time']       
+                                ? date('h:i A', strtotime($event['event_time'])) 
+                                : 'TBC'; ?></span>
                     </div>
                 </div>
                 <span class="event-arrow">→</span>
-            </a>
+            </div>
         <?php endwhile; ?>
     </div>
 </div>
@@ -185,7 +180,7 @@ echo $event['event_time']
                 <div class="committee-overlay">
                     <h3 class="committee-name"><?php echo htmlspecialchars($member['name']); ?></h3>
                     <p class="committee-position"><?php echo htmlspecialchars($member['position']); ?></p>
-                    <a href="committee.php#member-<?php echo $member['committee_id']; ?>" class="committee-know-more">KNOW MORE →</a>
+                    <a href="/CartClub/share/committee.php?id=<?php echo $member['committee_id']; ?>" class="committee-know-more">KNOW MORE →</a>
                 </div>
             </div>
         <?php endwhile; ?>
@@ -214,7 +209,7 @@ echo $event['event_time']
         <p class="cta-desc">Membership is open for Season 2026. Lock in your spot before lights out.</p>
         <div class="cta-buttons">
             <a href="signup.php" class="btn-primary-dark">SIGN UP →</a>
-            <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
+            <a href="events.php" class="btn-outline-white">DISCOVER</a>
         </div>
     </div>
 
