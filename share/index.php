@@ -31,7 +31,7 @@ $total_awards = $award_row['total'];
 
 <div class="top-section"> 
     <div class="top-section-content">
-        <p class="top-tag">   2026 UNIVERSITY GRAND PRIX   </p>
+        <p class="top-tag">-- 2026 UNIVERSITY GRAND PRIX --</p>
         <h1 class="top-title">GRAND PRIX <span>SOCIETY</span></h1>
         <p class="top-description">The Grand Prix Society is a student-led organization 
         dedicated to promoting the excitement and culture of motorsports on campus.</p>
@@ -113,11 +113,7 @@ $total_awards = $award_row['total'];
                 <p class="announcement-desc">
                     <?php echo htmlspecialchars(substr($announcement['content'], 0, 100)); ?>...
                 </p>
-                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
-
-                <a href="/CartClub/share/announcements.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
-
-
+                <a href="/CartClub/share/description.php?id=<?php echo $announcement['ann_id']; ?>" class="read-more">READ MORE →</a>
                 <div class="announcement-divider"></div>
             </div>
         </div>
@@ -140,7 +136,7 @@ $total_awards = $award_row['total'];
             $day = date('d', strtotime($event['event_date']));
             $i++;
         ?>
-            <a href="event-single.php?id=<?php echo $event['event_id']; ?>" 
+            <a href="/CartClub/share/event-single.php?id=<?php echo $event['event_id']; ?>" 
                class="event-row <?php echo $i === 1 ? 'event-row-highlight' : ''; ?>">
                 <div class="event-date">
                     <span class="event-month"><?php echo $month; ?></span>
@@ -185,7 +181,7 @@ echo $event['event_time']
                 <div class="committee-overlay">
                     <h3 class="committee-name"><?php echo htmlspecialchars($member['name']); ?></h3>
                     <p class="committee-position"><?php echo htmlspecialchars($member['position']); ?></p>
-                    <a href="committee.php#member-<?php echo $member['committee_id']; ?>" class="committee-know-more">KNOW MORE →</a>
+                    <a href="committee-profile.php?id=<?php echo $member['committee_id']; ?>" class="committee-know-more">KNOW MORE →</a>
                 </div>
             </div>
         <?php endwhile; ?>
