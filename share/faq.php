@@ -32,7 +32,7 @@ ini_set('display_errors', 1);
     }
  
     .faq-question {
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 700;
         color: white;
         text-transform: uppercase;
@@ -63,7 +63,7 @@ ini_set('display_errors', 1);
     }
  
     .faq-answer {
-        font-size: 15px;
+        font-size: 18px;
         color: #aaaaaa;
         line-height: 1.6;
         padding-bottom: 20px;
@@ -78,6 +78,7 @@ ini_set('display_errors', 1);
         <p class="top-description">Everything you need to know before joining the grid.</p>
     </div>
 </div>
+<!-- this section mainly for the head of the page, start of faq -->
  
 <div class="faq-section">
     <h2 class="stats-heading">FAQ <br><span>FOR MEMBERS</span></h2>
@@ -88,7 +89,8 @@ ini_set('display_errors', 1);
             <p class="faq-answer">Any currently enrolled student can join, regardless of
             your course or year of study. You don't need an engineering background —
             we have roles in design, marketing, sponsorship, and event management too.</p>
-        </details>
+        </details> 
+        <!-- each question in different class for more visibility -->
  
         <details class="faq-item">
             <summary class="faq-question">Do I need prior motorsport or engineering experience?</summary>
@@ -119,6 +121,7 @@ ini_set('display_errors', 1);
         </details>
     </div>
 </div>
+<!-- information can be variable, not fixed -->
 
 <div class="cta-section">
     <div class="cta-content">
@@ -127,9 +130,10 @@ ini_set('display_errors', 1);
         <div class="cta-buttons">
             <a href="signup.php" class="btn-primary-dark">SIGN UP →</a>
             <a href="contact.php" class="btn-outline-white">GET IN TOUCH</a>
-        </div>
+        </div>//basically button which directly brings to contact page or registration page as user
     </div>
     <img src="/CartClub/image/cta-car.png" class="cta-image">
+    <!-- for decorative purposes-image -->
 </div>
  
 <?php include('../share/footer.php'); ?>
