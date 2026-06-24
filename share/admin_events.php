@@ -21,7 +21,7 @@ if (isset($_GET['delete'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title       = mysqli_real_escape_string($conn, trim($_POST['title']));
     $description = mysqli_real_escape_string($conn, trim($_POST['description']));
-    $event_date  = mysqli_real_escape_string($conn, trim($_POST['event_date']));
+$event_date = !empty($_POST['event_date']) ? "'" . mysqli_real_escape_string($conn, $_POST['event_date']) . "'" : 'NULL';
     $event_time  = !empty($_POST['event_time']) ? "'" . mysqli_real_escape_string($conn, $_POST['event_time']) . "'" : 'NULL';
     $location    = mysqli_real_escape_string($conn, trim($_POST['location']));
     $created_by  = $_SESSION['user_id'];
@@ -113,7 +113,7 @@ $all = mysqli_query($conn, "SELECT * FROM events ORDER BY event_date ASC");
         <div class="msg"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
  
-    <!-- ── ADD / EDIT FORM ──────────────────────────────────────────── -->
+    <!-- ADD / EDIT FORM -->
     <div class="admin-form">
         <h2><?php echo $edit_data ? '✏️ Edit Event' : '➕ Add New Event'; ?></h2>
         <form method="POST">
@@ -130,8 +130,8 @@ $all = mysqli_query($conn, "SELECT * FROM events ORDER BY event_date ASC");
  
             <div class="form-row">
                 <div>
-                    <label>Event Date *</label>
-                    <input type="date" name="event_date" required
+                    <label>Event Date (optional)</label>
+                    <input type="date" name="event_date"
                            value="<?php echo $edit_data ? $edit_data['event_date'] : ''; ?>">
                 </div>
                 <div>

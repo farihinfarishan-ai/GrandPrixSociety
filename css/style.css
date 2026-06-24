@@ -348,6 +348,22 @@ role-profile {
     object-position: center;
 
 }
+.stat-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    display: block;
+}
+.stat-link:hover {
+    transform: translateY(-3px);
+}
+.stat-link:hover .stat-number {
+    color: #e10600;
+}
+.stat-link:hover .stat-label {
+    color: #fff;
+}
 
 .announcement-section {
     padding: 30px 60px 70px 60px;;

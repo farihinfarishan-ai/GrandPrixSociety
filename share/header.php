@@ -19,7 +19,7 @@
     <div class="nav-links">
         <a href="/CartClub/share/index.php">Home</a>
         <a href="/CartClub/share/about.php">About</a>
-        <a href="/CartClub/share/events.php">Activities</a>
+        <a href="/CartClub/share/events.php">Events</a>
         <a href="/CartClub/share/committee.php">Committee</a>
         <a href="/CartClub/share/announcements.php">Announcements</a>
         <a href="/CartClub/share/faq.php">FAQ</a>
@@ -31,8 +31,7 @@
           <?php if($_SESSION['role'] === 'admin'): ?>
           <a href="/CartClub/share/admin_dashboard.php"> Dashboard</a>
         <?php else: ?>
-         <a href="/CartClub/share/login.php">Login</a>
-         <a href="/CartClub/share/signup.php">Sign Up</a>
+         
           <?php endif; ?>
             <div class="header-profile">
                 <?php echo htmlspecialchars($_SESSION['full_name'] ?? 'Member'); ?> <br> 
