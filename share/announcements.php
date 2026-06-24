@@ -96,6 +96,11 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
 </div>
 
 <style>
+    .top-section {
+        padding: 110px 60px 40px 60px;
+        overflow: hidden;
+    }
+
     .announcement-grid {
         display: flex;
         flex-direction: column;
