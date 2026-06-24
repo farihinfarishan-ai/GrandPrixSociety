@@ -19,7 +19,7 @@
     <div class="nav-links">
         <a href="/CartClub/share/index.php">Home</a>
         <a href="/CartClub/share/about.php">About</a>
-        <a href="/CartClub/share/events.php">Activities</a>
+        <a href="/CartClub/share/events.php">Events</a>
         <a href="/CartClub/share/committee.php">Committee</a>
         <a href="/CartClub/share/announcements.php">Announcements</a>
         <a href="/CartClub/share/faq.php">FAQ</a>
