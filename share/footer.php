@@ -27,15 +27,14 @@
         <div class="footer-right">
             <h4>Site Map</h4>
            <div class="nav-links">
-        <a href="/CartClub/homepage/index.php">Home</a>
-        <a href="/CartClub/homepage/about.php">About</a>
-        <a href="/CartClub/homepage/activities.php">Events</a>
-        <a href="/CartClub/homepage/announcements.php">News</a>
-        <a href="/CartClub/homepage/committee.php">Committee</a>
-        <a href="/CartClub/homepage/contact.php">Contact</a>
+        <a href="/CartClub/share/index.php">Home</a>
+        <a href="/CartClub/share/about.php">About</a>
+        <a href="/CartClub/share/activities.php">Events</a>
+        <a href="/CartClub/share/announcements.php">News</a>
+        <a href="/CartClub/share/committee.php">Committee</a>
+        <a href="/CartClub/share/contact.php">Contact</a>
     </div>
         </div>
-
     </div>
 
     <div class="footer-bottom">
