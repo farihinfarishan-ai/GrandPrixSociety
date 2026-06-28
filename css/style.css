@@ -5,6 +5,9 @@ body {
     margin: 0;
     padding: 0;
 }
+/* BASE BODY */ 
+
+/* TOP BODY */ 
 .top-section {
    
     background-image:linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2)),
@@ -24,6 +27,7 @@ body {
     position: relative;
     padding-top: 70px;
 
+    /* constrain the hero text */ 
 }
 .top-section-content {
     max-width: 700px;
@@ -37,6 +41,8 @@ body {
     font-weight: 600;
     margin-bottom: 20px;
 }
+
+/* GRAND PRIX SOCIETY main hero heading  */ 
 .top-title{
     font-size: 130px !important;
     font-weight: 700;
@@ -47,6 +53,8 @@ body {
     color: white;
     margin-bottom: 24px;
 }
+
+/* society contain the line in red  */ 
 .top-title span {
     color: #CC0000;
     display: block; 
@@ -60,6 +68,7 @@ body {
     margin-bottom: 36px;
     font-weight: 400;
 }
+/* container JOIN NOW BUTTON */ 
 .top-button {
     display: flex;
     gap: 20px;
@@ -110,7 +119,7 @@ footer {
     align-items: center;
     gap: 16px;
 }
-
+/* social icon */ 
 .social-icons img {
     width: 28px;
     height: 28px;
@@ -349,6 +358,7 @@ nav {
 
 }
 
+/* ANNOUNCEMENTT */ 
 .announcement-section {
     padding: 30px 60px 70px 60px;;
     background-color: #0a0a0a;
@@ -403,7 +413,7 @@ nav {
 .announcement-card-body {
     padding: 24px;
 }
-
+/* date for announcemet */ 
 .announcement-date {
     font-size: 12px;
     color: #888;
@@ -434,6 +444,8 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
 }
+
+/* EVENTS */
 .events-section {
     padding: 50px 60px;
     background-color: #0a0a0a;
@@ -593,7 +605,7 @@ nav {
     overflow: hidden;
 }
 
-
+/* COMITTE  */
 .committee-card:nth-child(1),
 .committee-card:nth-child(2),
 .committee-card:nth-child(3),
@@ -606,6 +618,7 @@ nav {
 .committee-card:hover {
     flex: 1.1;
 }
+
 
 .committee-photo {
     position: absolute;
@@ -691,6 +704,7 @@ nav {
     padding: 30px 30px;
     color: white;
 }
+/* ABOUT DESCRIPTION  */ 
 .about-desc{
     font-size: 15px;
     color: #aaaaaa;
@@ -698,6 +712,8 @@ nav {
     margin-bottom: 16px;
     font-family:'Barlow Condensed', sans-serif;
 }
+
+/* CALL TO ACTION PART BAWAH SEKALI SIGN UP ETC ETC */
 .cta-section {
     position: relative;
     background-color: #CC0000;

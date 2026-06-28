@@ -1,8 +1,12 @@
 <?php
 include('db.php');
+// this one to connect with sql base 
 
+/* Get the announcement ID from the URL */ 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
+/* If no valid ID provided redirect back to homepage
+   This prevents someone visiting the page with no ?id= */
 if ($id <= 0) {
     header("Location: index.php");
     exit;
@@ -20,7 +24,7 @@ if (!$announcement) {
 }
 ?>
 
-<?php include('../share/header.php'); ?>
+<?php include('../share/header.php'); // load header ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +36,11 @@ if (!$announcement) {
 </head>
 <body>
 <div class="opacity">
+    <!-- Main announcement card -->
     <div class="announcement-detail-page">
         <a href="javascript:history.back()" class="back-link">← Back</a>
         <div class="announcement-detail-card">
-
+<!-- Banner image at top of card --> 
             <?php if (!empty($announcement['image_url'])): ?>
                 <div class="announcement-detail-image" 
                     style="background-image: url('<?php echo htmlspecialchars($announcement['image_url']); ?>');">
@@ -62,12 +67,15 @@ if (!$announcement) {
 </html>
 
 <style>
+
+    /* Extra top padding so content clears the fixed navbar */
+    
     body {
         position: relative;
         padding-top: 90px;
         min-height: 100vh;
     }
-
+ /* Blurred background image behind the whole page */ 
     body::before {
         content: "";
         position: fixed;
@@ -108,7 +116,7 @@ if (!$announcement) {
     .back-link:hover {
         text-decoration: underline;
     }
-
+/* announcement writting  */ 
     .announcement-detail-card {
         border-radius: 1px;
         overflow: hidden;
@@ -132,7 +140,7 @@ if (!$announcement) {
         font-size: 28px;
         color: #b80000;
     }
-
+/* content */ 
     .announcement-detail-content {
         font-size: 16px;
         line-height: 1.6;

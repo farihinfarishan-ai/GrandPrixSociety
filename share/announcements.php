@@ -1,14 +1,18 @@
 <?php
 
-include('../share/db.php');
+include('../share/db.php'); // connect to MySQL database
 
+/* Count total announcements for display purposes */
 $ann_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM announcements");
 $ann_row = mysqli_fetch_assoc($ann_query);
 $total_ann = $ann_row['total'];
 
+/* Get search keyword from URL */
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 
+
 if (!empty($search)) {
+     /* ── SEARCH MODE ── */ 
     $searchTerm = "%" . $search . "%";
     $stmt = mysqli_prepare($conn, 
         "SELECT * FROM announcements 
@@ -18,6 +22,8 @@ if (!empty($search)) {
     mysqli_stmt_execute($stmt);
     $announcements_query = mysqli_stmt_get_result($stmt);
 } else {
+    /* ── DEFAULT MODE ── */
+
     $announcements_query = mysqli_query($conn, 
         "SELECT * FROM announcements ORDER BY created_at DESC");
 }
@@ -27,7 +33,7 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
 ?>
 
 <?php include('../share/header.php'); ?>
-
+  <!-- hero section── --> 
 <div class="top-section"> 
     <div class="top-section-content">
         <p class="top-tag">CURRENT NEWS</p>
@@ -37,7 +43,7 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
         and society news.</p>
     </div>
 </div>
-
+  <!-- qnnouncement  section── --> 
 <div class="announcement-section">
     <h2 class="stats-heading"> ANNOUNCEMENT <br><span> AND NEWS </span></h2>
     
@@ -96,6 +102,7 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
 </div>
 
 <style>
+/* hero section and btop section */ 
     .top-section {
         padding: 110px 60px 40px 60px;
         overflow: hidden;
@@ -106,6 +113,7 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
         flex-direction: column;
         gap: 30px;
     }
+/* announcement */ 
     .announcement-card {
         display: flex;
         align-items: center;
@@ -146,7 +154,7 @@ $hasResults = mysqli_num_rows($announcements_query) > 0;
         border-radius: 6px;
         font-size: 14px;
     }
-
+/* search button */ 
     .search-btn {
         padding: 10px 20px;
         border: none;

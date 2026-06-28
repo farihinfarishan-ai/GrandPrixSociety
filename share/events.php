@@ -1,14 +1,24 @@
 <?php
 
-include('../share/db.php');
+/* ============================================
+   activities.php — Events / Activities Page
+   Shows all upcoming events from the database
+   Includes search functionality by title or location
+   ============================================ */
 
+
+include('../share/db.php'); // this is to connect to sql database
+
+/* Count total events for stats display */
 $event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
 $event_row = mysqli_fetch_assoc($event_query);
 $total_events = $event_row['total'];
 
+/* get search keyword */
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 
 if (!empty($search)) {
+    /* ── SEARCH MODE ── */ 
     $searchTerm = "%" . $search . "%";
     $stmt = mysqli_prepare($conn, 
         "SELECT * FROM events 
@@ -17,14 +27,16 @@ if (!empty($search)) {
     mysqli_stmt_bind_param($stmt, "ss", $searchTerm, $searchTerm);
     mysqli_stmt_execute($stmt);
     $events_query = mysqli_stmt_get_result($stmt);
+     /* ── DEFAULT MODE ── where no keyword so dia kasi the latest date */ 
 } else {
     $events_query = mysqli_query($conn, 
         "SELECT * FROM events ORDER BY event_date ASC");
 }
-
+/* Check if query returned any rows
+   Used later to show "no results found" message */
 $hasResults = mysqli_num_rows($events_query) > 0;
 ?>
-
+<!-- HERO SECTION  -->
 <?php include('../share/header.php'); ?>
 
 <div class="top-section"> 
@@ -36,11 +48,13 @@ $hasResults = mysqli_num_rows($events_query) > 0;
     </div>
 </div>
 
+<!-- ── EVENTS LIST SECTION ── -->
 <div class="events-section">
+    <!-- section heading --> 
     <div class="events-header">
         <h2 class="events-heading">UPCOMING <span>EVENTS</span></h2>
     </div>
-
+<!-- ── search bar  ── -->
     <div class="events-search">
         <form method="GET" action="" class="search-form">
             <input 
@@ -56,7 +70,7 @@ $hasResults = mysqli_num_rows($events_query) > 0;
             <?php endif; ?>
         </form>
     </div>
-
+ <!-- ── EVENTS LIST ── -->
     <div class="events-list">
         <?php if (!$hasResults): ?>
             <p class="no-results">No events found matching "<?php echo htmlspecialchars($search); ?>".</p>
@@ -92,11 +106,14 @@ $hasResults = mysqli_num_rows($events_query) > 0;
 </div>
 
 <style>
+     /* Override hero padding for this page only
+       Extra top padding because navbar is fixed at 70px */
     .top-section {
         padding: 110px 60px 40px 60px;
         overflow: hidden;
     }
-
+ /* Events section with F1 track background image
+       Dark overlay makes text readable over the image */
     .events-section {
         padding: 20px 60px;
         background-color: #b80000;
@@ -116,7 +133,7 @@ $hasResults = mysqli_num_rows($events_query) > 0;
         align-items: center;
         margin-bottom: 20px;
     }
-
+/* Space below the search bar */
     .events-search {
         margin-bottom: 30px;
     }
@@ -126,7 +143,7 @@ $hasResults = mysqli_num_rows($events_query) > 0;
         gap: 10px;
         align-items: center;
     }
-
+    /* Search input field */
     .search-input {
         flex: 1;
         max-width: 400px;
@@ -162,4 +179,4 @@ $hasResults = mysqli_num_rows($events_query) > 0;
     }
 </style>
 
-<?php include('../share/footer.php'); ?>
+<?php include('../share/footer.php');  // loaf footer ?>
