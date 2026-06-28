@@ -355,4 +355,4 @@ while ($row = mysqli_fetch_assoc($committee_query)) {
     </div>
 </div> -->
 
-<?php include('../share/footer.php'); ?>
+<?php include('../share/footer.php'); ?> 

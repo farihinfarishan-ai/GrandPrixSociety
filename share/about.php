@@ -10,32 +10,16 @@ $total_members = $member_row['total'];
 
 $event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
 $event_row = mysqli_fetch_assoc($event_query);
-<<<<<<< HEAD
-$total_events = $event_row['total'];
-$total_members = $member_row['total'];
-
-=======
 
 $total_events = $event_row['total'];
-
 $total_members = $member_row['total'];
->>>>>>> e79906c4363bd1d8dc5853b82acd2d5d50852806
 
 $award_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM awards");
 $award_row = mysqli_fetch_assoc($award_query);
 $total_awards = $award_row['total'];
 
-<<<<<<< HEAD
 $committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");//all this to collect the number of events and connect back to the page, so its dynamic
-
-=======
-$committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");
-
-$committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");//all this to collect the number of events and connect back to the page, so its dynamic
-
-$committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");
-
->>>>>>> e79906c4363bd1d8dc5853b82acd2d5d50852806
+// this to collect number of events and connect it back to front page, so itll be dynamic not static
 ?>
 
 <?php include('../share/header.php'); ?>
@@ -310,6 +294,7 @@ $committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display
 
      <div class="history-right" style="background-image: linear-gradient(to right, rgba(10,10,10,0.8), rgba(0,0,0,0)), url('/CartClub/image/lewis2.png');">
     </div>
+    <!-- background photo fill one half of history section -->
 </div>
 
 
