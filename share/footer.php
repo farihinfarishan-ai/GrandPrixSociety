@@ -35,6 +35,8 @@
         <a href="/CartClub/share/announcements.php">News</a>
         <a href="/CartClub/share/committee.php">Committee</a>
         <a href="/CartClub/share/faq.php">Contact</a>
+
+     <!-- connect the other files when the users click the navigation button -->
     </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 echo "PHP is working!";
 session_start();
-// this is for to test the errror 
+// this is for to test the errror and display error
 
 include('../share/db.php');
 
@@ -28,7 +28,8 @@ $total_awards = $award_row['total'];
 ?>
 
 <?php include('../share/header.php'); ?>
-
+<!-- include footer and header using include --> 
+ <!-- Top section / Hero Section --> 
 <div class="top-section"> 
     <div class="top-section-content">
         <p class="top-tag">-- 2026 UNIVERSITY GRAND PRIX --</p>
@@ -36,7 +37,7 @@ $total_awards = $award_row['total'];
         <p class="top-description">The Grand Prix Society is a student-led organization 
         dedicated to promoting the excitement and culture of motorsports on campus.</p>
         <div class="top-buttons">
-
+ <!-- Connect to other files when Click the Button --> 
             <a href="/CartClub/share/signup.php" class="btn-primary">JOIN NOW</a>
             <a href="/CartClub/share/about.php" class="btn-secondary">EXPLORE</a>
 
@@ -44,9 +45,11 @@ $total_awards = $award_row['total'];
     </div>
 </div>
 
+ <!-- Club in Numbers Section --> 
+
 <div class="stats-section">
     <div class="stats-left">
-        <!-- <p class="section-tag">—- BY THE NUMBERS --</p> -->
+    
         <h2 class="stats-heading">THE SOCIETY <br><span>IN FIGURES</span></h2>
 
         <div class="stats-list">
@@ -72,6 +75,7 @@ $total_awards = $award_row['total'];
         </div>
     </div>
 
+     <!-- Background image with gradient --> 
    <div class="stats-right" style="
     background-image: linear-gradient(to right, rgba(10,10,10,0.8), rgba(0,0,0,0)),
 
@@ -83,15 +87,16 @@ $total_awards = $award_row['total'];
     background-position: center;">
 </div>
 </div>
+ <!-- Announcement Section --> 
  <div class="announcement-section">
-        <!-- <p class="">—- PADDOCKS --</p> -->
+
         <h2 class="stats-heading"> ANNOUNCEMENT <br><span> AND NEWS </span></h2>
 
 <div class="announcement-grid">
     <?php
     $announcements_query = mysqli_query($conn, 
         "SELECT * FROM announcements ORDER BY created_at DESC LIMIT 3");
-    
+    // this one code to show that on page will list down only 3 
     while($announcement = mysqli_fetch_assoc($announcements_query)): ?>
         <div class="announcement-card">
             <div class="announcement-image" 
@@ -102,7 +107,7 @@ $total_awards = $award_row['total'];
                     <span class="announcement-placeholder">GPS</span>
                 <?php endif; ?>
             </div>
-
+   <!-- Announcement Card Body and Section --> 
             <div class="announcement-card-body">
                 <p class="announcement-date">
                     <?php echo date('d M Y', strtotime($announcement['created_at'])); ?>
@@ -119,10 +124,12 @@ $total_awards = $award_row['total'];
         </div>
     <?php endwhile; ?>
 </div>
+<!-- event section -->
 <div class="events-section">
     <div class="events-header">
         <h2 class="events-heading">UPCOMING <span>EVENTS</span></h2>
         <a href="events.php" class="see-more">SEE MORE →</a>
+        <!-- connect with events.php file when click see more  -->
     </div>
 
     <div class="events-list">
@@ -145,6 +152,7 @@ $total_awards = $award_row['total'];
                 <div class="event-info">
                     <h3 class="event-title"><?php echo htmlspecialchars($event['title']); ?></h3>
                     <div class="event-meta">
+                        <!-- htmlspechialchars for php function that convert char to HTML entities-->
                         <span class="event-location">📍 <?php echo htmlspecialchars($event['location'] ?? 'TBC'); ?></span>
                         <span class="event-time">🕒 <?php 
                             echo $event['event_time']       
@@ -201,6 +209,7 @@ $total_awards = $award_row['total'];
         hosted at the iconic Silverstone circuit in the UK. </p> 
 </div>
 <a href="about.php" class="see-more">SEE MORE →</a>
+<!--  connect to about.php or about section  -->
     </div>
                 </div>
 <div class="cta-section">
@@ -210,13 +219,14 @@ $total_awards = $award_row['total'];
         <div class="cta-buttons">
             <a href="signup.php" class="btn-primary-dark">SIGN UP →</a>
             <a href="events.php" class="btn-outline-white">DISCOVER</a>
+            <!--  connect to signup.php and events.php so open the file code  -->
         </div>
     </div>
 
 <img src="/GrandPrixSociety-main/image/cta-car.png" class="cta-image">
 
 <img src="/CartClub/image/cta-car.png" class="cta-image">
-
+<!-- link with the car image -->
 </div>
 
 <?php include('../share/footer.php'); ?>
