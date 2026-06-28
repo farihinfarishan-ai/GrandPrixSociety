@@ -11,6 +11,7 @@ $total_members = $member_row['total'];
 $event_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM events");
 $event_row = mysqli_fetch_assoc($event_query);
 
+
 $total_events = $event_row['total'];
 $total_members = $member_row['total'];
 

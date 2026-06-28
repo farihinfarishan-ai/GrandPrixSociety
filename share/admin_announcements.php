@@ -62,44 +62,169 @@ $all = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC
     <title>Admin – Announcements | Grand Prix Society</title>
     <link rel="stylesheet" href="/CartClub/GrandPrixSocietycss/style.css">
     <style>
-        body { font-family: Arial, sans-serif; background:#0a0a0a; color:#f0f0f0; margin:0; padding:0; }
-        .admin-wrapper { max-width:960px; margin:40px auto; padding:0 20px; }
-        h1 { color:#e10600; letter-spacing:2px; }
-        h2 { color:#ccc; font-size:1rem; text-transform:uppercase; letter-spacing:1px; }
-        .msg { background:#1a3a1a; border:1px solid #2d6a2d; color:#8fff8f;
-               padding:10px 16px; border-radius:4px; margin-bottom:20px; }
+        body
+         {
+             font-family: Arial, sans-serif;
+             background:#0a0a0a;
+             color:#f0f0f0;
+             margin:0;
+             padding:0;
+         }
+        .admin-wrapper
+         {
+             max-width:960px;
+             margin:40px auto;
+             padding:0 20px;
+         }
+        h1
+         {
+             color:#e10600;
+             letter-spacing:2px;
+         }
+        h2
+         {
+             color:#ccc;
+             font-size:1rem;
+             text-transform:uppercase;
+             letter-spacing:1px;
+         }
+        .msg
+         {
+             background:#1a3a1a;
+             border:1px solid #2d6a2d;
+             color:#8fff8f;
+             padding:10px 16px;
+             border-radius:4px;
+             margin-bottom:20px;
+         }
  
         /* ── form ── */
-        .admin-form { background:#1a1a1a; border:1px solid #2a2a2a;
-                      padding:24px; border-radius:8px; margin-bottom:40px; }
-        .admin-form label { display:block; margin-bottom:4px; color:#aaa; font-size:.85rem; }
+        .admin-form
+         {
+             background:#1a1a1a;
+             border:1px solid #2a2a2a;
+             padding:24px;
+             border-radius:8px;
+             margin-bottom:40px;
+         }
+        .admin-form label
+         {
+             display:block;
+             margin-bottom:4px;
+             color:#aaa;
+             font-size:.85rem;
+         }
         .admin-form input[type=text],
-        .admin-form textarea {
-            width:100%; padding:10px 12px; margin-bottom:16px;
-            background:#111; border:1px solid #333; color:#f0f0f0;
-            border-radius:4px; box-sizing:border-box; font-size:.95rem;
+        .admin-form textarea
+         {
+            width:100%;
+             padding:10px 12px;
+             margin-bottom:16px;
+            background:#111;
+             border:1px solid #333;
+             color:#f0f0f0;
+            border-radius:4px;
+             box-sizing:border-box; font-size:.95rem;
         }
-        .admin-form textarea { height:120px; resize:vertical; }
-        .btn-red   { background:#e10600; color:#fff; border:none; padding:10px 22px;
-                     border-radius:4px; cursor:pointer; font-weight:bold; letter-spacing:1px; }
-        .btn-red:hover { background:#b00500; }
-        .btn-gray  { background:#333; color:#fff; border:none; padding:10px 22px;
-                     border-radius:4px; cursor:pointer; margin-left:10px; }
-        .btn-gray:hover { background:#444; }
+        .admin-form textarea
+         {
+             height:120px;
+             resize:vertical;
+         }
+        .btn-red 
+          {
+             background:#e10600;
+             color:#fff;
+             border:none;
+             padding:10px 22px;
+             border-radius:4px;
+             cursor:pointer;
+             font-weight:bold;
+             letter-spacing:1px;
+        }
+        .btn-red:hover
+         {
+             background:#b00500;
+         }
+        .btn-gray 
+         {
+             background:#333;
+             color:#fff;
+             border:none;
+             padding:10px 22px;
+             border-radius:4px;
+             cursor:pointer;
+             margin-left:10px;
+         }
+        .btn-gray:hover
+         {
+             background:#444;
+         }
  
         /* ── table ── */
-        table { width:100%; border-collapse:collapse; }
-        th, td { padding:12px 14px; text-align:left; border-bottom:1px solid #222; font-size:.9rem; }
-        th { background:#181818; color:#e10600; text-transform:uppercase; font-size:.78rem; letter-spacing:1px; }
-        tr:hover { background:#111; }
-        .action-link { color:#e10600; text-decoration:none; margin-right:12px; font-size:.85rem; }
-        .action-link:hover { text-decoration:underline; }
-        .action-del { color:#888; }
-        .action-del:hover { color:#e10600; }
-        .thumb { width:60px; height:40px; object-fit:cover; border-radius:3px; background:#222; }
-        .nav-back { display:inline-block; margin-bottom:24px; color:#888;
-                    text-decoration:none; font-size:.85rem; }
-        .nav-back:hover { color:#fff; }
+        table
+         {
+             width:100%;
+             border-collapse:collapse;
+         }
+        th, td
+         {
+             padding:12px 14px;
+             text-align:left;
+             border-bottom:1px solid #222;
+             font-size:.9rem;
+         }
+        th
+         {
+             background:#181818;
+             color:#e10600;
+             text-transform:uppercase;
+             font-size:.78rem;
+             letter-spacing:1px;
+         }
+        tr:hover
+         {
+         background:#111;
+         }
+        .action-link
+         {
+             color:#e10600;
+             text-decoration:none;
+             margin-right:12px;
+             font-size:.85rem;
+         }
+        .action-link:hover
+         {
+             text-decoration:underline;
+         }
+        .action-del
+         {
+             color:#888;
+         }
+        .action-del:hover
+         {
+             color:#e10600;
+         }
+        .thumb
+         {
+             width:60px;
+             height:40px;
+             object-fit:cover;
+             border-radius:3px;
+             background:#222;
+         }
+        .nav-back
+         {
+             display:inline-block;
+             margin-bottom:24px;
+             color:#888;
+             text-decoration:none;
+             font-size:.85rem;
+         }
+        .nav-back:hover
+         {
+             color:#fff;
+         }
     </style>
 </head>
 <body>
