@@ -1,7 +1,7 @@
 <?php
 session_start();
  
-// ── GUARD: only admin can access ──────────────────────────────────────────────
+//Only admin can access
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header('Location: /login.php');
     exit;
@@ -11,14 +11,14 @@ include('../share/db.php');
  
 $message = '';
  
-// ── DELETE ────────────────────────────────────────────────────────────────────
+//Delete section
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['delete'];
     mysqli_query($conn, "DELETE FROM announcements WHERE ann_id = $id");
     $message = 'Announcement deleted.';
 }
  
-// ── INSERT or UPDATE ──────────────────────────────────────────────────────────
+//Insert or update section
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title     = mysqli_real_escape_string($conn, trim($_POST['title']));
     $content   = mysqli_real_escape_string($conn, trim($_POST['content']));
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $posted_by = $_SESSION['user_id'];
  
     if (!empty($_POST['ann_id'])) {
-        // EDIT
+        //Edit section
         $id = (int) $_POST['ann_id'];
         mysqli_query($conn,
             "UPDATE announcements
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
         $message = 'Announcement updated successfully.';
     } else {
-        // ADD NEW
+        //Add section
         mysqli_query($conn,
             "INSERT INTO announcements (title, content, image_url, posted_by)
              VALUES ('$title', '$content', '$image_url', $posted_by)"
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
  
-// ── FETCH for edit form ───────────────────────────────────────────────────────
+//Fetch for edit form
 $edit_data = null;
 if (isset($_GET['edit'])) {
     $id        = (int) $_GET['edit'];
@@ -52,7 +52,7 @@ if (isset($_GET['edit'])) {
     $edit_data = mysqli_fetch_assoc($result);
 }
  
-// ── FETCH all announcements ───────────────────────────────────────────────────
+//Fetch all announcements
 $all = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC");
 ?>
 <!DOCTYPE html>
@@ -98,7 +98,7 @@ $all = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC
              margin-bottom:20px;
          }
  
-        /* ── form ── */
+        /* form */
         .admin-form
          {
              background:#1a1a1a;
@@ -161,7 +161,7 @@ $all = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC
              background:#444;
          }
  
-        /* ── table ── */
+        /* table */
         table
          {
              width:100%;
@@ -237,7 +237,7 @@ $all = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC
         <div class="msg"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
  
-    <!-- ── ADD / EDIT FORM ──────────────────────────────────────────── -->
+    <!--add or edit announcement-->
     <div class="admin-form">
         <h2><?php echo $edit_data ? '✏️ Edit Announcement' : '➕ Add New Announcement'; ?></h2>
         <form method="POST">
@@ -265,7 +265,7 @@ $all = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC
         </form>
     </div>
  
-    <!-- ── TABLE ────────────────────────────────────────────────────── -->
+    <!--Announcement table for admin-->
     <h2>All Announcements</h2>
     <table>
         <thead>

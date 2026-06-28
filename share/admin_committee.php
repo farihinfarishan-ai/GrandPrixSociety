@@ -10,14 +10,14 @@ include('../share/db.php');
  
 $message = '';
  
-// ── DELETE ────────────────────────────────────────────────────────────────────
+//Delete section
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['delete'];
     mysqli_query($conn, "DELETE FROM committee WHERE committee_id = $id");
     $message = 'Committee member removed.';
 }
  
-// ── INSERT or UPDATE ──────────────────────────────────────────────────────────
+//Insert or update section
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name          = mysqli_real_escape_string($conn, trim($_POST['name']));
     $position      = mysqli_real_escape_string($conn, trim($_POST['position']));
