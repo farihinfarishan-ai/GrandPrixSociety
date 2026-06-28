@@ -28,10 +28,10 @@
     <!-- RIGHT SIDE — LOGIN + SIGNUP -->
     <div class="nav-right">
         <?php if(isset($_SESSION['user_id'])): ?>
-            <a href="/CartClub/homepage/logout.php" class="nav-login">Logout</a>
+            <a href="/CartClub/share/logout.php" class="nav-login">Logout</a>
         <?php else: ?>
-            <a href="/CartClub/homepage/login.php" class="nav-login">Login</a>
-            <a href="/CartClub/homepage/signup.php" class="nav-btn">Sign Up</a>
+            <a href="/CartClub/share/login.php" class="nav-login">Login</a>
+            <a href="/CartClub/share/signup.php" class="nav-btn">Sign Up</a>
         <?php endif; ?>
     </div>
 </nav>
