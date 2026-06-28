@@ -12,11 +12,11 @@ include('../share/db.php');
 $message = '';
 $error   = '';
  
-// ── DELETE ────────────────────────────────────────────────────────────────────
+//Delete section
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['delete'];
  
-    // Prevent admin from deleting themselves
+    //Prevent admin from deleting themselves
     if ($id === (int) $_SESSION['user_id']) {
         $error = 'You cannot delete your own account.';
     } else {
@@ -25,14 +25,14 @@ if (isset($_GET['delete'])) {
     }
 }
  
-// ── ADD NEW USER ──────────────────────────────────────────────────────────────
+//Add new user
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $full_name = mysqli_real_escape_string($conn, trim($_POST['full_name']));
     $email     = mysqli_real_escape_string($conn, trim($_POST['email']));
     $password  = mysqli_real_escape_string($conn, trim($_POST['password']));
     $role      = $_POST['role'] === 'admin' ? 'admin' : 'user';
  
-    // Check if email already exists
+    //Check if email already exists
     $check = mysqli_fetch_assoc(mysqli_query($conn,
         "SELECT user_id FROM users WHERE email = '$email'"));
  
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
  
-// ── FETCH all users ───────────────────────────────────────────────────────────
+//Fetch all users
 $users_query = mysqli_query($conn, "SELECT * FROM users ORDER BY role ASC, created_at DESC");
  
 // Count stats
@@ -126,7 +126,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
              margin-bottom:20px;
          }
  
-        /* ── stat row ── */
+        /* stat row */
         .stat-row
          {
              display:grid;
@@ -157,7 +157,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
              margin-top:4px;
          }
  
-        /* ── add form ── */
+        /* add form */
         .admin-form
          {
              background:#141414;
@@ -211,7 +211,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
              background:#b00500;
          }
  
-        /* ── table ── */
+        /* table */
         .table-wrap
          {
              overflow-x:auto;
@@ -317,7 +317,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
         <div class="msg-err"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>
  
-    <!--STATS-->
+    <!--Stats-->
     <div class="stat-row">
         <div class="stat-card">
             <div class="num"><?php echo $total_users + $total_admins; ?></div>
@@ -333,7 +333,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
         </div>
     </div>
  
-    <!-- ADD NEW MEMBER FORM -->
+    <!--add new member form-->
     <div class="admin-form">
         <h2>➕ Add New Member</h2>
         <form method="POST">
@@ -355,7 +355,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
                 <div>
                     <label>Role *</label>
                     <select name="role">
-                        <option value="user">User<option>
+                        <option value="user">User</option>
                         <option value="admin">Admin</option>
                     </select>
                 </div>
@@ -364,7 +364,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
         </form>
     </div>
  
-    <!-- ── MEMBERS TABLE ── -->
+    <!--Members table-->
     <h2>All Members</h2>
     <input class="search-bar" type="text" id="searchInput"
            placeholder="Search by name or email..." onkeyup="filterTable()">
@@ -407,7 +407,7 @@ $total_admins = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as c FRO
                     <td>
                         <?php if ($user['user_id'] != $_SESSION['user_id']): ?>
                             <a class="action-del"
-                               href="admin_users.php?delete=<?php echo $user['user_id']; ?>"
+                               href="admin_members.php?delete=<?php echo $user['user_id']; ?>"
                                onclick="return confirm('Remove <?php echo htmlspecialchars($user['full_name']); ?> from the system?')">
                                 Remove
                             </a>

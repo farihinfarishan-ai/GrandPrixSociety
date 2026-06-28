@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
  
-// ── FETCH for edit form ───────────────────────────────────────────────────────
+//Fetch for editing committee
 $edit_data = null;
 if (isset($_GET['edit'])) {
     $id        = (int) $_GET['edit'];
@@ -51,7 +51,7 @@ if (isset($_GET['edit'])) {
     $edit_data = mysqli_fetch_assoc($result);
 }
  
-// ── FETCH all committee members ───────────────────────────────────────────────
+//Fetch all committee members
 $all = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");
 ?>
 <!DOCTYPE html>
@@ -260,7 +260,7 @@ $all = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC")
         <div class="msg"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
  
-    <!-- ── ADD / EDIT FORM ──────────────────────────────────────────── -->
+    <!--add or edit committee by admin-->
     <div class="admin-form">
         <h2><?php echo $edit_data ? '✏️ Edit Member' : '➕ Add Committee Member'; ?></h2>
         <form method="POST">
@@ -303,7 +303,7 @@ $all = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC")
         </form>
     </div>
  
-    <!-- ── TABLE ────────────────────────────────────────────────────── -->
+    <!--Committee list-->
     <h2>Current Committee (<?php
         $count_result = mysqli_query($conn, "SELECT COUNT(*) as c FROM committee");
         $count_row    = mysqli_fetch_assoc($count_result);

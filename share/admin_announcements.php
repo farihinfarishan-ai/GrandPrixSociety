@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
  
-//Fetch for edit form
+//Fetch for edit announcements
 $edit_data = null;
 if (isset($_GET['edit'])) {
     $id        = (int) $_GET['edit'];
@@ -265,7 +265,7 @@ $all = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC
         </form>
     </div>
  
-    <!--Announcement table for admin-->
+    <!--Announcement table of list-->
     <h2>All Announcements</h2>
     <table>
         <thead>

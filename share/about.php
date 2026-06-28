@@ -19,7 +19,7 @@ $award_query = mysqli_query($conn, "SELECT COUNT(*) as total FROM awards");
 $award_row = mysqli_fetch_assoc($award_query);
 $total_awards = $award_row['total'];
 
-$committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");//all this to collect the number of events and connect back to the page, so its dynamic
+$committee_query = mysqli_query($conn, "SELECT * FROM committee ORDER BY display_order ASC");//all this to collect the number of events and connect back to the page
 // this to collect number of events and connect it back to front page, so itll be dynamic not static
 ?>
 

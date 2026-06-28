@@ -10,14 +10,14 @@ include('../share/db.php');
  
 $message = '';
  
-// ── DELETE ────────────────────────────────────────────────────────────────────
+//Delete section
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['delete'];
     mysqli_query($conn, "DELETE FROM events WHERE event_id = $id");
     $message = 'Event deleted.';
 }
  
-// ── INSERT or UPDATE ──────────────────────────────────────────────────────────
+//Insert or Update Section
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title       = mysqli_real_escape_string($conn, trim($_POST['title']));
     $description = mysqli_real_escape_string($conn, trim($_POST['description']));
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
  
-// ── FETCH for edit form ───────────────────────────────────────────────────────
+//Fetch for edit events form
 $edit_data = null;
 if (isset($_GET['edit'])) {
     $id        = (int) $_GET['edit'];
@@ -64,7 +64,7 @@ if (isset($_GET['edit'])) {
     $edit_data = mysqli_fetch_assoc($result);
 }
  
-// ── FETCH all events ──────────────────────────────────────────────────────────
+//Fetch all events
 $all = mysqli_query($conn, "SELECT * FROM events ORDER BY event_date ASC");
 ?>
 <!DOCTYPE html>
@@ -258,7 +258,7 @@ $all = mysqli_query($conn, "SELECT * FROM events ORDER BY event_date ASC");
         <div class="msg"><?php echo htmlspecialchars($message); ?></div>
     <?php endif; ?>
  
-    <!-- ADD / EDIT FORM -->
+    <!--Add or edit events-->
     <div class="admin-form">
         <h2><?php echo $edit_data ? '✏️ Edit Event' : '➕ Add New Event'; ?></h2>
         <form method="POST">
@@ -299,7 +299,7 @@ $all = mysqli_query($conn, "SELECT * FROM events ORDER BY event_date ASC");
         </form>
     </div>
  
-    <!-- ── TABLE ────────────────────────────────────────────────────── -->
+    <!--Events table/list-->
     <h2>All Events</h2>
     <table>
         <thead>

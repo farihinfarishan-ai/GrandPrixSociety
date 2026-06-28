@@ -1,4 +1,5 @@
-
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,12 +28,23 @@
 
     <!-- RIGHT SIDE — LOGIN + SIGNUP -->
     <div class="nav-right">
-        <?php if(isset($_SESSION['user_id'])): ?>
-            <a href="/CartClub/share/logout.php" class="nav-login">Logout</a>
-        <?php else: ?>
-            <a href="/CartClub/share/login.php" class="nav-login">Login</a>
-            <a href="/CartClub/share/signup.php" class="nav-btn">Sign Up</a>
-        <?php endif; ?>
+       <?php if(isset($_SESSION['user_id'])): ?>
+    <?php if($_SESSION['role'] === 'admin'): ?>
+        <a href="/CartClub/share/admin_dashboard.php" class="nav-login">Dashboard</a>
+    <?php endif; ?>                         
+    <div class="header-profile">
+        <?php echo htmlspecialchars($_SESSION['full_name'] ?? 'Member'); ?>
+        <div class="role-profile">
+            <span class="profile-role <?php echo ($_SESSION['role'] === 'admin') ? 'role-admin' : 'role-user'; ?>">
+                <?php echo htmlspecialchars($_SESSION['role'] ?? 'user'); ?>
+            </span>
+        </div>
+    </div>
+    <a href="/CartClub/share/logout.php" class="nav-login">Logout</a>
+<?php else: ?>                              
+    <a href="/CartClub/share/login.php" class="nav-login">Login</a>
+    <a href="/CartClub/share/signup.php" class="nav-btn">Sign Up</a>
+<?php endif; ?>
     </div>
 </nav>
 </header>
